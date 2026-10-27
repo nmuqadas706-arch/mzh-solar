@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently Asked Questions about solar panels, hybrid inverters, net metering, lithium batteries, and CCTV systems in Pakistan with MZH Solar.">
+  <title>Frequently Asked Questions (FAQs) — MZH Solar Pakistan</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .faq-accordion-item {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: all var(--transition-fast);
+    }
+    .faq-accordion-trigger {
+      width: 100%;
+      text-align: left;
+      padding: 18px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #192024;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .faq-accordion-trigger svg {
+      transition: transform var(--transition-fast);
+      flex-shrink: 0;
+    }
+    .faq-accordion-item.open .faq-accordion-trigger svg {
+      transform: rotate(180deg);
+    }
+    .faq-accordion-body {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all var(--transition-smooth);
+      font-size: 0.90625rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .faq-accordion-item.open .faq-accordion-body {
+      padding: 0 24px 20px;
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Alladin.pk Style Continuous Marquee Announcement Bar -->
+  <div class="announcement-bar-scroll" aria-label="Announcements">
+    <div class="announcement-track">
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span><strong>Official MZH Solar Pakistan</strong> — Quality Solar Inverters, Tier-1 Panels & CCTV Security Systems</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span><strong>Nationwide Safe Delivery</strong> across Punjab, Sindh, KPK & Balochistan</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span><strong>Solar Technical Consultation:</strong> 0300-1234567 (Mon-Sat 9am-7pm)</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span><strong>Net-Metering Certified:</strong> Free Solar Quote & Payback Analysis</span>
+      </div>
+      <!-- Duplicate set for seamless continuous marquee loop -->
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span><strong>Official MZH Solar Pakistan</strong> — Quality Solar Inverters, Tier-1 Panels & CCTV Security Systems</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span><strong>Nationwide Safe Delivery</strong> across Punjab, Sindh, KPK & Balochistan</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span><strong>Solar Technical Consultation:</strong> 0300-1234567 (Mon-Sat 9am-7pm)</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span><strong>Net-Metering Certified:</strong> Free Solar Quote & Payback Analysis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Header: Alladin.pk Dual-Tier Header -->
+  <header class="main-header">
+    <!-- Top Row: Logo, UAN Helpline, Predictive Search, Actions -->
+    <div class="container header-top-row">
+      
+      <!-- Brand Logo (Official MZH Solar Logo - Strictly Preserved) -->
+      <a href="../index.html" class="brand-logo-link" title="MZH Solar Pakistan">
+        <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Helpline / UAN Block (Alladin.pk Style) -->
+      <div class="header-helpline-box">
+        <div class="helpline-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="helpline-text-label">UAN / Helpline:</div>
+          <a href="tel:03001234567" class="helpline-number">0300-1234567</a>
+        </div>
+      </div>
+
+      <!-- Predictive Rounded Search Form with Trending Suggestions -->
+      <div class="alladin-search-wrapper">
+        <form class="alladin-search-form header-search-form" action="search.html" method="GET">
+          <input type="text" name="q" class="alladin-search-input header-search-input" placeholder="Search inverters, panels, lithium batteries..." autocomplete="off">
+          <button type="submit" class="alladin-search-btn" aria-label="Search Catalog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+        
+        <!-- Trending Searches Strip -->
+        <div class="trending-keywords-bar">
+          <span>Trending:</span>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Inverex Nitrox 6kW')">Nitrox 6kW</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Bifacial 580W')">580W Bifacial</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('LiFePO4 Battery')">Lithium 48V</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Growatt SPF')">Growatt 5kVA</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('ColorVu CCTV')">4K CCTV</a>
+        </div>
+      </div>
+
+      <!-- Header Action Group: Account, Wishlist, Cart Drawer, WhatsApp -->
+      <div class="header-actions">
+        <!-- Account Visual Trigger -->
+        <button type="button" class="header-action-btn" id="headerAccountBtn" onclick="openAccountModal(event)" title="My Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+
+        <!-- Wishlist Link -->
+        <a href="wishlist.html" class="header-action-btn" title="View Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="wishlist-count-badge" style="display:none;">0</span>
+        </a>
+
+        <!-- Cart Drawer Trigger Button -->
+        <button type="button" class="header-action-btn open-cart-drawer-btn" title="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA Button -->
+        <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20interested%20in%20solar%20products" target="_blank" rel="noopener" class="header-whatsapp-cta">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          0300-1234567
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Second Tier: Dark Sticky Navigation Bar with Categories Dropdown -->
+    <div class="header-nav-bar">
+      <div class="container header-nav-container">
+        
+        <!-- Categories Dropdown Button (Shop by Categories) -->
+        <div class="categories-dropdown">
+          <button type="button" class="categories-menu-btn" aria-haspopup="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            All Categories
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          
+          <div class="categories-dropdown-menu">
+            <a href="solar-panels.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M2 12h20M12 2v20M2 7l20 10M2 17l20-10"/></svg>
+              Solar Panels
+            </a>
+            <a href="inverters.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Solar Inverters
+            </a>
+            <a href="inverters.html?sub=hybrid" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+              Hybrid Solar Inverters
+            </a>
+            <a href="inverters.html?sub=on-grid" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              On-Grid Solar Inverters
+            </a>
+            <a href="inverters.html?sub=off-grid" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Off-Grid Solar Inverters
+            </a>
+            <a href="inverters.html?sub=ups" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01"/></svg>
+              UPS Systems
+            </a>
+            <a href="batteries.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+              Solar Batteries
+            </a>
+            <a href="batteries.html?sub=lithium" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Z"/><path d="M13 6l-5 8h4l-1 4 5-8h-4l1-4z"/></svg>
+              Lithium Batteries
+            </a>
+            <a href="charge-controllers.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Solar Charge Controllers
+            </a>
+            <a href="accessories.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Solar Accessories
+            </a>
+            <a href="cctv-security.html" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              CCTV Cameras
+            </a>
+            <a href="cctv-security.html?sub=ip" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              IP Cameras
+            </a>
+            <a href="cctv-security.html?sub=wifi" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+              Wi-Fi Cameras
+            </a>
+            <a href="cctv-security.html?sub=recorders" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="3"/><line x1="6" y1="8" x2="6.01" y2="8"/><line x1="18" y1="8" x2="18.01" y2="8"/></svg>
+              DVR / NVR Systems
+            </a>
+            <a href="cctv-security.html?sub=accessories" class="category-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              CCTV Accessories
+            </a>
+            <a href="installation.html" class="category-menu-item" style="border-top:1px solid #F1F5F9; color:var(--color-primary); font-weight:800;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Solar Installation Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Menu Links -->
+        <nav class="nav-links-dark">
+          <a href="../index.html" class="nav-link-dark">Home</a>
+          <a href="shop.html" class="nav-link-dark">Shop All</a>
+          <a href="hot-deals.html" class="nav-link-dark">
+            Hot Deals
+            <span class="hot-deal-badge">Hot</span>
+          </a>
+          <a href="inverters.html" class="nav-link-dark">Inverters / UPS</a>
+          <a href="charge-controllers.html" class="nav-link-dark">Charge Controllers</a>
+          <a href="solar-panels.html" class="nav-link-dark">Solar Panels</a>
+          <a href="batteries.html" class="nav-link-dark">Solar Batteries</a>
+          <a href="cctv-security.html" class="nav-link-dark">CCTV & Security</a>
+          <a href="packages.html" class="nav-link-dark">Solar Packages</a>
+          <a href="installation.html" class="nav-link-dark">Installation</a>
+          <a href="track-order.html" class="nav-link-dark">Track Order</a>
+        </nav>
+
+        <!-- Right Side Nav CTA -->
+        <button type="button" class="header-quote-nav-cta" onclick="openQuoteModal();">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Get Free Quote
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar" style="height: 48px; width: auto; object-fit: contain;">
+      <button type="button" class="mobile-nav-close" style="font-size: 1.5rem; color: #192024;">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <form class="mobile-search-form" action="search.html" method="GET">
+        <input type="text" name="q" class="mobile-search-input" placeholder="Search products...">
+        <button type="submit" style="color: #0D3E2C;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </form>
+
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="../index.html">Home</a></li>
+        <li class="mobile-nav-item"><a href="shop.html">Shop All Products</a></li>
+        <li class="mobile-nav-item"><a href="wishlist.html">Saved Wishlist</a></li>
+        <li class="mobile-nav-item"><a href="hot-deals.html" style="color:#DC2626;">Hot Deals <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; display:inline-block; margin-left:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></a></li>
+        <li class="mobile-nav-item"><a href="inverters.html">Solar Inverters / UPS</a></li>
+        <li class="mobile-nav-item"><a href="charge-controllers.html">Solar Charge Controllers</a></li>
+        <li class="mobile-nav-item"><a href="solar-panels.html">Solar Panels</a></li>
+        <li class="mobile-nav-item"><a href="batteries.html">Solar Batteries</a></li>
+        <li class="mobile-nav-item"><a href="cctv-security.html">CCTV & Security</a></li>
+        <li class="mobile-nav-item"><a href="installation.html">Installation Services</a></li>
+        <li class="mobile-nav-item"><a href="packages.html">Solar System Packages</a></li>
+        <li class="mobile-nav-item"><a href="track-order.html">Track Order</a></li>
+        <li class="mobile-nav-item"><a href="cart.html">View Cart (<span class="cart-count-badge" style="position:static; display:inline-flex;">0</span>)</a></li>
+        <li class="mobile-nav-item"><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="mobile-nav-footer">
+      <button type="button" class="btn btn-primary" onclick="openQuoteModal();" style="width:100%;">
+        Get Free Solar Quote
+      </button>
+      <a href="https://wa.me/923001234567" target="_blank" class="header-whatsapp-cta" style="justify-content:center;">
+        WhatsApp 0300-1234567
+      </a>
+    </div>
+  </aside>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cartDrawerOverlay" class="cart-drawer-overlay"></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Your Shopping Cart
+      </div>
+      <button type="button" id="cartDrawerClose" class="cart-drawer-close">&times;</button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="cartDrawerEmpty" class="cart-drawer-empty" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <h3 style="font-size:1.1rem; font-weight:700; color:#1E252D; margin-bottom:8px;">Your cart is empty</h3>
+      <p style="font-size:0.875rem; margin-bottom:20px;">Explore our Tier-1 solar panels and hybrid inverters to begin saving electricity.</p>
+      <a href="inverters.html" class="btn btn-primary" onclick="document.getElementById('cartDrawerClose').click();">Browse Products</a>
+    </div>
+
+    <!-- Items List -->
+    <div id="cartDrawerItems" class="cart-drawer-items">
+      <!-- Dynamic cart items rendered via cart.js -->
+    </div>
+
+    <!-- Footer Summary -->
+    <div id="cartDrawerFooter" class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span id="cartDrawerSubtotal" style="color:var(--color-primary);">PKR 0</span>
+      </div>
+      <p style="font-size:0.75rem; color:#64748B; margin-bottom:14px;">Taxes and simulated shipping calculated at checkout.</p>
+      <div class="cart-drawer-actions">
+        <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout &rarr;</a>
+        <a href="cart.html" class="btn" style="width:100%; border:1px solid #CBD5E1; background:#FFFFFF;">View Full Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="section-padding">
+    <div class="container" style="max-width:860px;">
+      
+      <!-- Category 1: Solar & Inverters -->
+      <h2 style="font-size:1.375rem; font-weight:800; color:#0D3E2C; margin-bottom:18px;">
+        1. Solar Panels & Inverters
+      </h2>
+
+      <div class="faq-accordion-item open">
+        <button type="button" class="faq-accordion-trigger">
+          <span>What is the difference between On-Grid, Off-Grid, and Hybrid Solar Inverters?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-accordion-body">
+          <strong>On-Grid (Grid-Tied):</strong> Connects directly to the utility grid without batteries. Surplus units are sold via Net-Metering, but the system shuts down during a power blackout for lineman safety.<br><br>
+          <strong>Off-Grid:</strong> Operates entirely independent of the utility grid, relying on solar panels and a battery bank. Ideal for remote farmhouses or areas without electricity lines.<br><br>
+          <strong>Hybrid:</strong> The ideal choice for Pakistan. Combines both worlds — it provides instant battery backup during load shedding AND allows you to export excess solar energy to the grid with Net-Metering.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <button type="button" class="faq-accordion-trigger">
+          <span>How does Net-Metering work with DISCOs (LESCO, IESCO, K-Electric, FESCO)?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-accordion-body">
+          Net-Metering is governed by NEPRA regulations in Pakistan. A bi-directional "Green Meter" records both units imported from the grid and units exported by your solar system. At the end of each billing cycle, your net bill is calculated. If you export more than you import, your credit units roll over to subsequent months.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <button type="button" class="faq-accordion-trigger">
+          <span>Are your solar panels genuine Tier-1 Bloomberg listed?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-accordion-body">
+          Yes. MZH Solar strictly procures genuine Grade-A panels from recognized Tier-1 manufacturers including Longi, Jinko Solar, Canadian Solar, and JA Solar. Every module comes with an authentic barcode laser-etched beneath the front glass that can be scanned to verify official manufacturer warranty.
+        </div>
+      </div>
+
+      <!-- Category 2: Batteries -->
+      <h2 style="font-size:1.375rem; font-weight:800; color:#0D3E2C; margin:36px 0 18px;">
+        2. Solar Batteries & Power Storage
+      </h2>
+
+      <div class="faq-accordion-item">
+        <button type="button" class="faq-accordion-trigger">
+          <span>Why are LiFePO4 Lithium batteries superior to Tall Tubular lead-acid batteries?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-accordion-body">
+          Lithium Iron Phosphate (LiFePO4) offers <strong>6000+ cycles</strong> (approx. 12-15 years life) compared to 1200-1500 cycles (2-3 years) for tubular batteries. In addition, lithium charges in 1-2 hours instead of 8-10 hours, requires zero water top-ups, produces no toxic acid fumes, and offers 95% usable depth of discharge.
+        </div>
+      </div>
+
+      <!-- Category 3: CCTV & Security -->
+      <h2 style="font-size:1.375rem; font-weight:800; color:#0D3E2C; margin:36px 0 18px;">
+        3. CCTV & Security Equipment
+      </h2>
+
+      <div class="faq-accordion-item">
+        <button type="button" class="faq-accordion-trigger">
+          <span>Can I view my CCTV security cameras remotely on my smartphone?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-accordion-body">
+          Yes! All Hikvision, Dahua, and Imou systems supported by MZH Solar include free P2P cloud mobile apps (Hik-Connect, DMSS, and Imou Life) for Android and iOS. You can monitor live video, review recorded playback, and receive instant push notifications when human motion is detected.
+        </div>
+      </div>
+
+      <!-- Help CTA -->
+      <div style="margin-top:48px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:16px; padding:32px; text-align:center;">
+        <h3 style="font-size:1.25rem; font-weight:800; color:#192024; margin-bottom:8px;">Have another question?</h3>
+        <p style="font-size:0.875rem; color:#64748B; margin-bottom:20px;">
+          Our technical solar advisors are available daily on WhatsApp and phone.
+        </p>
+        <a href="https://wa.me/923001234567" target="_blank" class="btn btn-primary">
+          Ask on WhatsApp (0300-1234567)
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 16. Alladin.pk Style Premium Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      
+      <!-- Newsletter Block -->
+      <div style="background:#0D3E2C; border:1px solid rgba(229,169,25,0.25); border-radius:var(--radius-lg); padding:32px 36px; margin-bottom:48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+        <div style="max-width:500px;">
+          <span style="display:inline-block; font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--color-accent); letter-spacing:0.06em; margin-bottom:4px;">Stay Connected</span>
+          <h3 style="color:#FFFFFF; font-size:1.4rem; font-weight:800; margin-bottom:6px;">Stay Updated with Solar Innovations</h3>
+          <p style="color:#CBD5E1; font-size:0.875rem; line-height:1.5;">Get early notifications on promotional discounts, new inverter arrivals, and net-metering regulatory updates in Pakistan.</p>
+        </div>
+        <form style="display:flex; gap:10px; width:100%; max-width:440px;" onsubmit="event.preventDefault(); showToast('Subscribed!', 'Thank you for subscribing to MZH Solar updates (Demo).', 'success');">
+          <input type="email" required placeholder="Enter your email address..." style="flex:1; padding:12px 18px; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.3); color:#FFFFFF; font-size:0.875rem; outline:none;">
+          <button type="submit" class="btn btn-primary" style="white-space:nowrap; padding:12px 24px;">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Demonstration Disclaimer -->
+      <div class="demo-disclaimer-box">
+        <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:text-bottom; display:inline-block; margin-right:4px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Frontend Demonstration Notice:</strong> This website is an interactive e-commerce frontend demonstration for MZH Solar. All product pricing (PKR), stock values, order tracking codes, and checkout processes are simulated on the client-side using Vanilla JavaScript and LocalStorage.
+      </div>
+
+      <!-- Main Footer Columns -->
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand Info & Socials -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="footer-logo-link" title="MZH Solar">
+            <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar Logo" class="footer-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            <strong>MZH Solar</strong> — Solar Energy Products, Turnkey Installation Solutions & CCTV Security Equipment. Dedicated to engineering high-efficiency energy independence across Pakistan.
+          </p>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Main Boulevard, Gulberg III, Lahore, Pakistan</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Helpline: <a href="tel:03001234567"><strong>0300-1234567</strong></a></span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span><a href="mailto:info@mzhsolar.com.pk">info@mzhsolar.com.pk</a></span>
+            </div>
+          </div>
+
+          <!-- Social Media Icons Row -->
+          <div class="footer-social-row">
+            <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="footer-social-btn" title="Chat on WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook Page" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-btn" title="YouTube Channel" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-btn" title="LinkedIn Profile" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Solar Products -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Solar Products</h4>
+          <ul class="footer-links-list">
+            <li><a href="inverters.html">Solar Inverters & UPS</a></li>
+            <li><a href="inverters.html?sub=hybrid">Hybrid Solar Inverters</a></li>
+            <li><a href="inverters.html?sub=on-grid">On-Grid Solar Inverters</a></li>
+            <li><a href="inverters.html?sub=off-grid">Off-Grid Solar Inverters</a></li>
+            <li><a href="solar-panels.html">Monocrystalline Panels</a></li>
+            <li><a href="solar-panels.html">N-Type Bifacial Panels</a></li>
+            <li><a href="batteries.html">LiFePO4 Lithium Batteries</a></li>
+            <li><a href="charge-controllers.html">MPPT Charge Controllers</a></li>
+            <li><a href="accessories.html">Solar Mounting & Cables</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Security & Services -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Security & Solutions</h4>
+          <ul class="footer-links-list">
+            <li><a href="cctv-security.html">CCTV Cameras</a></li>
+            <li><a href="cctv-security.html?sub=ip">IP & PoE Cameras</a></li>
+            <li><a href="cctv-security.html?sub=wifi">Wireless Wi-Fi Cameras</a></li>
+            <li><a href="cctv-security.html?sub=recorders">DVR & NVR Recorders</a></li>
+            <li><a href="packages.html">Solar System Packages</a></li>
+            <li><a href="installation.html">Solar Installation Services</a></li>
+            <li><a href="hot-deals.html">Hot Promotional Deals</a></li>
+            <li><a href="quote.html">Solar Quote Calculator</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Quick Links & Support -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Customer Portal</h4>
+          <ul class="footer-links-list">
+            <li><a href="login.html">Customer Sign In</a></li>
+            <li><a href="register.html">Create New Account</a></li>
+            <li><a href="account.html">Customer Dashboard</a></li>
+            <li><a href="track-order.html">Track Your Order</a></li>
+            <li><a href="about.html">About MZH Solar</a></li>
+            <li><a href="faqs.html">Frequently Asked Questions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Trust & Certification Badges Strip -->
+      <div class="footer-cert-strip">
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <span>AEDB Net-Metering Certified</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Tier-1 Bloomberg Rated Modules</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>100% Pure Sine Wave Guaranteed</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>24/7 WhatsApp Helpline: 0300-1234567</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Strip -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>MZH Solar Pakistan</strong>. All rights reserved. Pure HTML5, CSS3, & Vanilla JavaScript.
+        </div>
+        
+        <!-- Styled Payment Methods Badges -->
+        <div class="footer-payment-badges">
+          <span style="font-size:0.75rem; color:#94A3B8; margin-right:4px;">Supported (Demo):</span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>
+            Cash on Delivery
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Raast Instant Pay
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Bank Wire Transfer
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Visa / MasterCard
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/app.js"></script>
+
+</body>
+</html>

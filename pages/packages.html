@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Turnkey Solar System Packages for Pakistani Homes and Commercial Properties - 3.2kW, 6kW, 10kW and custom solar solutions.">
+  <title>Turnkey Solar System Packages — MZH Solar Pakistan</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    /* Package Header Banner Enhancements */
+    .packages-hero-strip {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(229, 169, 25, 0.4);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .hero-pill-badge svg {
+      color: var(--color-accent);
+      width: 15px;
+      height: 15px;
+    }
+
+    /* Interactive Bill Estimator Box */
+    .solar-estimator-wrapper {
+      background: linear-gradient(135deg, #0D3E2C 0%, #15553C 100%);
+      border: 1.5px solid rgba(229, 169, 25, 0.4);
+      border-radius: 20px;
+      padding: 36px 32px;
+      color: #FFFFFF;
+      margin-bottom: 48px;
+      box-shadow: 0 12px 35px rgba(13, 62, 44, 0.25);
+    }
+    .estimator-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+    .estimator-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      background: rgba(229, 169, 25, 0.15);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 8px;
+    }
+    .estimator-title {
+      font-size: 1.625rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+    .estimator-desc {
+      font-size: 0.875rem;
+      color: #CBD5E1;
+      line-height: 1.5;
+    }
+    .bill-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .bill-tab-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 16px 14px;
+      color: #FFFFFF;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+    .bill-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    .bill-tab-btn.active {
+      background: #FFFFFF;
+      color: #0D3E2C;
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .bill-tab-size {
+      font-size: 0.9375rem;
+      font-weight: 800;
+    }
+    .bill-tab-amount {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      font-weight: 600;
+    }
+    .bill-tab-popular {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: #192024;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      white-space: nowrap;
+    }
+    .estimator-output-panel {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .est-metric-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .est-metric-label {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .est-metric-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .est-metric-value.gold {
+      color: var(--color-accent);
+    }
+    .est-metric-value.green {
+      color: #34D399;
+    }
+
+    /* Category Filter Tab Bar */
+    .packages-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .pkg-filter-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #CBD5E1;
+      color: #334155;
+      padding: 10px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pkg-filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .pkg-filter-btn.active {
+      background: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(13, 62, 44, 0.2);
+    }
+
+    /* Pulse Highlight for matched package */
+    @keyframes pkgPulse {
+      0% { box-shadow: 0 0 0 0 rgba(229, 169, 25, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(229, 169, 25, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(229, 169, 25, 0); }
+    }
+    .package-card.pulse-highlight {
+      animation: pkgPulse 1.8s infinite;
+      border-color: var(--color-accent) !important;
+    }
+
+    /* Upgraded Comparison Matrix */
+    .comparison-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 36px;
+      margin-top: 64px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    .comparison-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .matrix-controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .table-scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0D3E2C;
+      background: #EBF5F0;
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: 1px solid #C3E6D5;
+    }
+    .matrix-view-toggle {
+      display: none; /* Displayed on tablets and mobile screens */
+      background: #F1F5F9;
+      border-radius: 30px;
+      padding: 3px;
+      gap: 4px;
+      border: 1px solid #E2E8F0;
+    }
+    .matrix-toggle-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      color: #64748B;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .matrix-toggle-btn.active {
+      background: #0D3E2C;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(13, 62, 44, 0.25);
+    }
+
+    /* Scrollable Table Container */
+    .comparison-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      border: 1px solid #E2E8F0;
+      position: relative;
+      background: #FFFFFF;
+    }
+    .comparison-table-wrapper::-webkit-scrollbar {
+      height: 8px;
+    }
+    .comparison-table-wrapper::-webkit-scrollbar-track {
+      background: #F8FAFC;
+      border-radius: 4px;
+    }
+    .comparison-table-wrapper::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .comparison-table-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #0D3E2C;
+    }
+    .comparison-table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.875rem;
+    }
+    .comparison-table th {
+      background: #F8FAFC;
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 800;
+      color: #475569;
+      border-bottom: 2px solid #E2E8F0;
+      white-space: nowrap;
+    }
+    .comparison-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid #F1F5F9;
+      color: #334155;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .comparison-table tr:hover td {
+      background: #F8FAFC;
+    }
+    .comparison-table tr.highlight-row td {
+      background: #FFFDF5;
+    }
+    .comparison-table tr.highlight-row td:first-child {
+      border-left: 3px solid var(--color-accent);
+    }
+
+    /* Sticky First Column on Horizontal Scroll */
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      background: #FFFFFF;
+      min-width: 180px;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+      white-space: normal;
+    }
+    .comparison-table th:first-child {
+      background: #F8FAFC;
+      z-index: 5;
+    }
+    .comparison-table tr.highlight-row td:first-child {
+      background: #FFFDF5;
+    }
+    .comparison-table tr:hover td:first-child {
+      background: #F8FAFC;
+    }
+
+    /* Mobile Cards View */
+    .comparison-mobile-cards {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .comp-mobile-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 20px 18px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+    .comp-mobile-card.featured-pkg {
+      border: 2px solid #E5A919;
+      background: #FFFDF7;
+      box-shadow: 0 6px 18px rgba(229, 169, 25, 0.15);
+    }
+    .comp-mobile-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: #FEF3C7;
+      color: #92400E;
+      margin-bottom: 8px;
+    }
+    .comp-mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 12px;
+    }
+    .comp-mobile-title {
+      font-size: 1.0625rem;
+      font-weight: 800;
+      color: #0D3E2C;
+      margin: 0;
+    }
+    .comp-mobile-sub {
+      font-size: 0.75rem;
+      color: #64748B;
+      margin-top: 2px;
+    }
+    .comp-mobile-capacity {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #EBF5F0;
+      color: #0D3E2C;
+      font-weight: 800;
+      font-size: 0.8125rem;
+      padding: 5px 12px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .comp-mobile-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .comp-mobile-spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      padding: 6px 0;
+      border-bottom: 1px dashed #F1F5F9;
+    }
+    .comp-mobile-spec-label {
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .comp-mobile-spec-val {
+      font-weight: 700;
+      color: #1E293B;
+      text-align: right;
+      max-width: 60%;
+    }
+    .comp-mobile-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .comp-mobile-actions .btn {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-align: center;
+      justify-content: center;
+    }
+    .comp-mobile-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      background: #25D366;
+      color: #FFFFFF;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+    .comp-mobile-whatsapp:hover {
+      background: #1EBE5D;
+    }
+    .comp-mobile-whatsapp svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    /* Media query for comparison matrix */
+    @media (max-width: 768px) {
+      .comparison-card {
+        padding: 20px 14px;
+        border-radius: 16px;
+        margin-top: 36px;
+      }
+      .comparison-header-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .comparison-header-wrap .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 10px 16px;
+      }
+      .matrix-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .matrix-view-toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .matrix-toggle-btn {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+      }
+      .table-scroll-hint {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* View switching classes on mobile */
+      .comparison-mobile-cards.active-view {
+        display: flex;
+      }
+      .comparison-mobile-cards.hidden-view {
+        display: none;
+      }
+      .comparison-table-wrapper.active-view {
+        display: block;
+      }
+      .comparison-table-wrapper.hidden-view {
+        display: none;
+      }
+    }
+
+    /* 6-Step Installation Journey */
+    .packages-journey-section {
+      margin-top: 64px;
+    }
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .journey-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .journey-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      border-color: var(--color-primary-light);
+    }
+    .journey-step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #F0FDF4;
+      color: var(--color-primary);
+      border: 1px solid #BBF7D0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .journey-card-content h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #192024;
+      margin-bottom: 6px;
+    }
+    .journey-card-content p {
+      font-size: 0.8125rem;
+      color: #64748B;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* FAQ Section on Packages */
+    .packages-faq-section {
+      margin-top: 64px;
+    }
+    .faq-container-clean {
+      max-width: 900px;
+      margin: 28px auto 0;
+    }
+    .faq-item-clean {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .faq-item-clean.active {
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 16px rgba(13, 62, 44, 0.08);
+    }
+    .faq-header-clean {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: #1E293B;
+      user-select: none;
+    }
+    .faq-header-clean svg {
+      transition: transform 0.25s ease;
+      color: var(--color-primary);
+    }
+    .faq-item-clean.active .faq-header-clean svg {
+      transform: rotate(180deg);
+    }
+    .faq-body-clean {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 0.875rem;
+      color: #475569;
+      line-height: 1.6;
+      border-top: 1px solid #F1F5F9;
+      padding-top: 14px;
+    }
+    .faq-item-clean.active .faq-body-clean {
+      display: block;
+    }
+
+    @media (max-width: 992px) {
+      .bill-selector-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .bill-selector-grid {
+        grid-template-columns: 1fr;
+      }
+      .journey-grid {
+        grid-template-columns: 1fr;
+      }
+      .estimator-output-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Alladin.pk Style Continuous Marquee Announcement Bar -->
+  <div class="announcement-bar-scroll" aria-label="Announcements">
+    <div class="announcement-track">
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <span><strong>Official MZH Solar Pakistan</strong> — Quality Solar Inverters, Tier-1 Panels & CCTV Security
+          Systems</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+        <span><strong>Nationwide Safe Delivery</strong> across Punjab, Sindh, KPK & Balochistan</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+        <span><strong>Solar Technical Consultation:</strong> 0300-1234567 (Mon-Sat 9am-7pm)</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+        <span><strong>Net-Metering Certified:</strong> Free Solar Quote & Payback Analysis</span>
+      </div>
+      <!-- Duplicate set for seamless continuous marquee loop -->
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <span><strong>Official MZH Solar Pakistan</strong> — Quality Solar Inverters, Tier-1 Panels & CCTV Security
+          Systems</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+        <span><strong>Nationwide Safe Delivery</strong> across Punjab, Sindh, KPK & Balochistan</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+        <span><strong>Solar Technical Consultation:</strong> 0300-1234567 (Mon-Sat 9am-7pm)</span>
+      </div>
+      <div class="announcement-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+        <span><strong>Net-Metering Certified:</strong> Free Solar Quote & Payback Analysis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Header: Alladin.pk Dual-Tier Header -->
+  <header class="main-header">
+    <!-- Top Row: Logo, UAN Helpline, Predictive Search, Actions -->
+    <div class="container header-top-row">
+
+      <!-- Brand Logo (Official MZH Solar Logo - Strictly Preserved) -->
+      <a href="../index.html" class="brand-logo-link" title="MZH Solar Pakistan">
+        <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Helpline / UAN Block (Alladin.pk Style) -->
+      <div class="header-helpline-box">
+        <div class="helpline-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </div>
+        <div>
+          <div class="helpline-text-label">UAN / Helpline:</div>
+          <a href="tel:03001234567" class="helpline-number">0300-1234567</a>
+        </div>
+      </div>
+
+      <!-- Predictive Rounded Search Form with Trending Suggestions -->
+      <div class="alladin-search-wrapper">
+        <form class="alladin-search-form header-search-form" action="search.html" method="GET">
+          <input type="text" name="q" class="alladin-search-input header-search-input"
+            placeholder="Search inverters, panels, lithium batteries..." autocomplete="off">
+          <button type="submit" class="alladin-search-btn" aria-label="Search Catalog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Trending Searches Strip -->
+        <div class="trending-keywords-bar">
+          <span>Trending:</span>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Inverex Nitrox 6kW')">Nitrox
+            6kW</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Bifacial 580W')">580W Bifacial</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('LiFePO4 Battery')">Lithium 48V</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('Growatt SPF')">Growatt 5kVA</a>
+          <a href="javascript:void(0)" class="trending-pill" onclick="searchKeyword('ColorVu CCTV')">4K CCTV</a>
+        </div>
+      </div>
+
+      <!-- Header Action Group: Account, Wishlist, Cart Drawer, WhatsApp -->
+      <div class="header-actions">
+        <!-- Account Visual Trigger -->
+        <button type="button" class="header-action-btn" id="headerAccountBtn" onclick="openAccountModal(event)"
+          title="My Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </button>
+
+        <!-- Wishlist Link -->
+        <a href="wishlist.html" class="header-action-btn" title="View Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          <span class="wishlist-count-badge" style="display:none;">0</span>
+        </a>
+
+        <!-- Cart Drawer Trigger Button -->
+        <button type="button" class="header-action-btn open-cart-drawer-btn" title="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span class="cart-count-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA Button -->
+        <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20interested%20in%20solar%20products"
+          target="_blank" rel="noopener" class="header-whatsapp-cta">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+          0300-1234567
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Second Tier: Dark Sticky Navigation Bar with Categories Dropdown -->
+    <div class="header-nav-bar">
+      <div class="container header-nav-container">
+
+        <!-- Categories Dropdown Button (Shop by Categories) -->
+        <div class="categories-dropdown">
+          <button type="button" class="categories-menu-btn" aria-haspopup="true" aria-expanded="false"
+            id="categoriesMenuBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <span>All Categories</span>
+            <svg class="cat-chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
+          <div class="categories-dropdown-menu">
+            <div class="cat-dropdown-header">
+              <span class="cat-dropdown-title">Product Catalog</span>
+              <span class="cat-dropdown-count">17 Categories</span>
+            </div>
+            <a href="solar-panels.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="2" />
+                  <path d="M2 12h20M12 2v20M2 7l20 10M2 17l20-10" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Panels</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="inverters.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Inverters</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="inverters.html?sub=hybrid" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 12h8M12 8v8" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Hybrid Solar Inverters</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="inverters.html?sub=on-grid" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </span>
+              <span class="cat-item-name">On-Grid Solar Inverters</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="inverters.html?sub=off-grid" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Off-Grid Solar Inverters</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="inverters.html?sub=ups" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="6" width="20" height="12" rx="2" />
+                  <path d="M6 12h.01M10 12h.01" />
+                </svg>
+              </span>
+              <span class="cat-item-name">UPS Systems</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="batteries.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <line x1="7" y1="3" x2="7" y2="7" />
+                  <line x1="17" y1="3" x2="17" y2="7" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Batteries</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="batteries.html?sub=lithium" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Z" />
+                  <path d="M13 6l-5 8h4l-1 4 5-8h-4l1-4z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Lithium Batteries</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="charge-controllers.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Charge Controllers</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="accessories.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Accessories</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="cctv-security.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              </span>
+              <span class="cat-item-name">CCTV Cameras</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="cctv-security.html?sub=ip" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" />
+                  <rect x="2" y="14" width="20" height="8" rx="2" />
+                  <line x1="6" y1="6" x2="6.01" y2="6" />
+                  <line x1="6" y1="18" x2="6.01" y2="18" />
+                </svg>
+              </span>
+              <span class="cat-item-name">IP Cameras</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="cctv-security.html?sub=wifi" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Wi-Fi Cameras</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="cctv-security.html?sub=recorders" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="6" y1="8" x2="6.01" y2="8" />
+                  <line x1="18" y1="8" x2="18.01" y2="8" />
+                </svg>
+              </span>
+              <span class="cat-item-name">DVR / NVR Systems</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="cctv-security.html?sub=accessories" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">CCTV Accessories</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="coffee-machines.html" class="category-menu-item">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                  <line x1="6" y1="1" x2="6" y2="4" />
+                  <line x1="10" y1="1" x2="10" y2="4" />
+                  <line x1="14" y1="1" x2="14" y2="4" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Coffee Machines</span>
+              <span class="cat-new-badge">NEW</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+            <a href="installation.html" class="category-menu-item service-highlight">
+              <span class="cat-item-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </span>
+              <span class="cat-item-name">Solar Installation Services</span>
+              <svg class="cat-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Menu Links -->
+        <nav class="nav-links-dark">
+          <a href="../index.html" class="nav-link-dark">Home</a>
+          <a href="about.html" class="nav-link-dark">About Us</a>
+          <a href="shop.html" class="nav-link-dark">Shop All</a>
+          <a href="hot-deals.html" class="nav-link-dark">
+            Hot Deals
+            <span class="hot-deal-badge">Hot</span>
+          </a>
+          <a href="inverters.html" class="nav-link-dark">Inverters / UPS</a>
+          <a href="charge-controllers.html" class="nav-link-dark">Charge Controllers</a>
+          <a href="solar-panels.html" class="nav-link-dark">Solar Panels</a>
+          <a href="batteries.html" class="nav-link-dark">Solar Batteries</a>
+          <a href="cctv-security.html" class="nav-link-dark">CCTV & Security</a>
+          <a href="packages.html" class="nav-link-dark active">Solar Packages</a>
+          <a href="installation.html" class="nav-link-dark">Installation</a>
+        </nav>
+
+        <!-- Right Side Nav CTA -->
+        <button type="button" class="header-quote-nav-cta" onclick="openQuoteModal();">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          Get Free Quote
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar"
+        style="height: 48px; width: auto; object-fit: contain;">
+      <button type="button" class="mobile-nav-close" style="font-size: 1.5rem; color: #192024;">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <form class="mobile-search-form" action="search.html" method="GET">
+        <input type="text" name="q" class="mobile-search-input" placeholder="Search products...">
+        <button type="submit" style="color: #0D3E2C;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+      </form>
+
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="../index.html">Home</a></li>
+        <li class="mobile-nav-item"><a href="about.html">About Us</a></li>
+        <li class="mobile-nav-item"><a href="installation.html">Services</a></li>
+        <li class="mobile-nav-item mobile-nav-has-sub">
+          <button type="button" class="mobile-nav-sub-toggle" aria-expanded="false">
+            <span>Ecommerce</span>
+            <svg class="sub-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <ul class="mobile-sub-menu">
+            <li><a href="shop.html?cat=solar">Solar</a></li>
+            <li><a href="coffee-machines.html">Coffee Machines</a></li>
+            <li><a href="cctv-security.html">Others</a></li>
+          </ul>
+        </li>
+        <li class="mobile-nav-item"><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="mobile-nav-footer">
+      <button type="button" class="btn btn-primary" onclick="openQuoteModal();" style="width:100%;">
+        Get Free Solar Quote
+      </button>
+      <a href="https://wa.me/923001234567" target="_blank" class="header-whatsapp-cta" style="justify-content:center;">
+        WhatsApp 0300-1234567
+      </a>
+    </div>
+  </aside>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cartDrawerOverlay" class="cart-drawer-overlay"></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1" />
+          <circle cx="20" cy="21" r="1" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+        </svg>
+        Your Shopping Cart
+      </div>
+      <button type="button" id="cartDrawerClose" class="cart-drawer-close">&times;</button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="cartDrawerEmpty" class="cart-drawer-empty" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+      </svg>
+      <h3 style="font-size:1.1rem; font-weight:700; color:#1E252D; margin-bottom:8px;">Your cart is empty</h3>
+      <p style="font-size:0.875rem; margin-bottom:20px;">Explore our Tier-1 solar panels and hybrid inverters to begin
+        saving electricity.</p>
+      <a href="inverters.html" class="btn btn-primary"
+        onclick="document.getElementById('cartDrawerClose').click();">Browse Products</a>
+    </div>
+
+    <!-- Items List -->
+    <div id="cartDrawerItems" class="cart-drawer-items">
+      <!-- Dynamic cart items rendered via cart.js -->
+    </div>
+
+    <!-- Footer Summary -->
+    <div id="cartDrawerFooter" class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span id="cartDrawerSubtotal" style="color:var(--color-primary);">PKR 0</span>
+      </div>
+      <p style="font-size:0.75rem; color:#64748B; margin-bottom:14px;">Taxes and simulated shipping calculated at
+        checkout.</p>
+      <div class="cart-drawer-actions">
+        <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout &rarr;</a>
+        <a href="cart.html" class="btn" style="width:100%; border:1px solid #CBD5E1; background:#FFFFFF;">View
+          Full Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- Interactive Bill Estimator & Package Matcher -->
+      <div class="solar-estimator-wrapper" id="packageEstimator">
+        <div class="estimator-header">
+          <span class="estimator-tag">Instant Sizing Tool</span>
+          <h2 class="estimator-title">Find Your Ideal Solar System in 1-Click</h2>
+          <p class="estimator-desc">
+            Select your property size or average monthly electricity bill below to reveal the engineered capacity, expected generation, and payback timeframe:
+          </p>
+        </div>
+
+        <!-- Bill Selector Tiers -->
+        <div class="bill-selector-grid">
+          <button type="button" class="bill-tab-btn" data-tier="3kw" onclick="selectBillTier('3kw')">
+            <span class="bill-tab-size">5 - 7 Marla House</span>
+            <span class="bill-tab-amount">Avg Bill PKR 25,000 - 45,000</span>
+          </button>
+          
+          <button type="button" class="bill-tab-btn active" data-tier="6kw" onclick="selectBillTier('6kw')">
+            <span class="bill-tab-popular">Most Popular in Pakistan</span>
+            <span class="bill-tab-size">10 Marla - 1 Kanal</span>
+            <span class="bill-tab-amount">Avg Bill PKR 50,000 - 95,000</span>
+          </button>
+          
+          <button type="button" class="bill-tab-btn" data-tier="10kw" onclick="selectBillTier('10kw')">
+            <span class="bill-tab-size">1 - 2 Kanal / Plaza</span>
+            <span class="bill-tab-amount">Avg Bill PKR 100,000 - 200,000</span>
+          </button>
+          
+          <button type="button" class="bill-tab-btn" data-tier="custom" onclick="selectBillTier('custom')">
+            <span class="bill-tab-size">Commercial / Industrial</span>
+            <span class="bill-tab-amount">Avg Bill PKR 250,000+</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Output Panel -->
+        <div id="estimatorOutput" class="estimator-output-panel">
+          <div class="est-metric-col">
+            <span class="est-metric-label">Recommended System</span>
+            <span class="est-metric-value gold" id="estSystemName">6.0 kW Complete Home Hybrid</span>
+          </div>
+          <div class="est-metric-col">
+            <span class="est-metric-label">Monthly Generation</span>
+            <span class="est-metric-value green" id="estUnits">~750 - 900 Units / Mo</span>
+          </div>
+          <div class="est-metric-col">
+            <span class="est-metric-label">Estimated Bill Relief</span>
+            <span class="est-metric-value" id="estSavings">Up to 85% Savings</span>
+          </div>
+          <div class="est-metric-col">
+            <span class="est-metric-label">Est. Payback Time</span>
+            <span class="est-metric-value" id="estPayback">~2.8 - 3.2 Years</span>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" onclick="scrollToPackage('pkg-02')" style="padding:12px 22px; font-weight:800;">
+              View Package Details &darr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scope / Pricing Disclaimer Notice -->
+      <div class="disclaimer-banner">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>
+          <strong>Package Capacity & Pricing Scope:</strong> Estimated prices and system capacities shown are representative placeholders for standard single/three-phase installations. Final customized quotations depend on roof structure height (elevated vs standard L2/L3), DC/AC cable run distances, and DISCO (LESCO/IESCO/KE) Net Metering green meter filing.
+        </div>
+      </div>
+
+      <!-- Section Title & Filter Tabs -->
+      <div style="text-align:center; margin-bottom:28px;">
+        <span class="section-tag">Explore Standard Packages</span>
+        <h2 class="section-title" style="margin-bottom:12px;">Engineered Solar Turnkey Solutions</h2>
+        <p class="section-subtitle" style="margin-bottom:24px;">All packages include tier-1 solar modules, pure sine wave inverters, electrical safety breakers, and complete professional installation.</p>
+        
+        <!-- Filter Tabs -->
+        <div class="packages-filter-bar">
+          <button type="button" class="pkg-filter-btn active" data-filter="all" onclick="filterPackages('all')">All Turnkey Packages (4)</button>
+          <button type="button" class="pkg-filter-btn" data-filter="residential" onclick="filterPackages('residential')">Residential Systems (3.2kW & 6kW)</button>
+          <button type="button" class="pkg-filter-btn" data-filter="commercial" onclick="filterPackages('commercial')">Commercial On-Grid (10kW+)</button>
+          <button type="button" class="pkg-filter-btn" data-filter="custom" onclick="filterPackages('custom')">Custom Engineered Solutions</button>
+        </div>
+      </div>
+
+      <!-- The Perfectly Aligned Packages Grid (Rendered via JS with Equalized Rhythm) -->
+      <div id="fullPackagesGrid" class="packages-grid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Quick Comparison Section -->
+      <div class="comparison-card" id="comparisonMatrixSection">
+        
+        <div class="comparison-header-wrap">
+          <div>
+            <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--color-primary); letter-spacing:0.06em;">Comprehensive Specification</span>
+            <h3 style="font-size:1.375rem; font-weight:800; color:#192024; margin:4px 0 0;">
+              Solar Package Quick Comparison Matrix
+            </h3>
+          </div>
+          <button type="button" class="btn btn-outline-primary" onclick="openQuoteModal()" style="font-size:0.8125rem; padding:9px 20px;">
+            Request Custom System Sizing
+          </button>
+        </div>
+
+        <!-- Controls Row: Swipe Hint & Mobile View Toggle -->
+        <div class="matrix-controls-row">
+          <div class="table-scroll-hint" id="matrixScrollHint">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <span>Swipe horizontally to view all 8 specifications</span>
+          </div>
+          <div class="matrix-view-toggle">
+            <button type="button" class="matrix-toggle-btn active" id="btnMatrixCards" onclick="toggleMatrixView('cards')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Card View
+            </button>
+            <button type="button" class="matrix-toggle-btn" id="btnMatrixTable" onclick="toggleMatrixView('table')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              Table View
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. Scrollable Table View with Sticky First Column -->
+        <div class="comparison-table-wrapper" id="matrixTableView">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Package Name</th>
+                <th>System Capacity</th>
+                <th>Inverter Technology</th>
+                <th>Storage Backup</th>
+                <th>Net-Metering Green Meter</th>
+                <th>Estimated Generation</th>
+                <th>Ideal Property</th>
+                <th>Turnkey Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Essential Home Solar</strong>
+                  <div style="font-size:0.75rem; color:#64748B;">Entry Tier Power Backup</div>
+                </td>
+                <td><span style="font-weight:700; color:var(--color-primary);">3.2 kW</span></td>
+                <td>3.2kW Pure Sine Wave Hybrid</td>
+                <td>Tubular 230Ah x 2 (Heavy Duty)</td>
+                <td><span style="color:#64748B; font-weight:600;">Optional</span></td>
+                <td><strong>~400 - 480 Units/Mo</strong></td>
+                <td>5 - 7 Marla Single Storey</td>
+                <td>
+                  <button type="button" class="btn btn-primary" style="padding:7px 16px; font-size:0.75rem; font-weight:700;" onclick="openQuoteForSpecificPackage('Essential Home Solar 3.2kW')">
+                    Get Quote
+                  </button>
+                </td>
+              </tr>
+              <tr class="highlight-row">
+                <td>
+                  <strong style="color:#0D3E2C;">Complete Home Solar <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A919" stroke="#E5A919" stroke-width="1.5" style="vertical-align:text-bottom; display:inline-block; margin-left:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></strong>
+                  <div style="font-size:0.71875rem; color:#B45309; font-weight:800; text-transform:uppercase;">Most Popular in Pakistan</div>
+                </td>
+                <td><span style="font-weight:800; color:#0D3E2C; font-size:1rem;">6.0 kW</span></td>
+                <td>6kW Nitrox / Growatt Dual MPPT</td>
+                <td><span style="color:#10B981; font-weight:700;">5.12kWh LiFePO4 Lithium (6000 cycles)</span></td>
+                <td><span style="color:#10B981; font-weight:800;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; display:inline-block; margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg>Fully Included</span></td>
+                <td><strong>~750 - 900 Units/Mo</strong></td>
+                <td>10 Marla - 1 Kanal (Runs 1.5T AC)</td>
+                <td>
+                  <button type="button" class="btn btn-primary" style="padding:7px 16px; font-size:0.75rem; font-weight:700; box-shadow:0 4px 10px rgba(13,62,44,0.25);" onclick="openQuoteForSpecificPackage('Complete Home Solar 6kW')">
+                    Get Quote
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Commercial Solar</strong>
+                  <div style="font-size:0.75rem; color:#64748B;">Maximum Energy Export</div>
+                </td>
+                <td><span style="font-weight:700; color:var(--color-primary);">10 - 20 kW</span></td>
+                <td>3-Phase Huawei / Growatt High-Efficiency</td>
+                <td>Grid-Tied (No Battery Maintenance)</td>
+                <td><span style="color:#10B981; font-weight:800;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; display:inline-block; margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg>Full Export Ready</span></td>
+                <td><strong>~1,400 - 2,800 Units/Mo</strong></td>
+                <td>Offices, Clinics, Schools, Plazas</td>
+                <td>
+                  <button type="button" class="btn btn-primary" style="padding:7px 16px; font-size:0.75rem; font-weight:700;" onclick="openQuoteForSpecificPackage('Commercial Solar 10-20kW')">
+                    Get Quote
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Customized Solar Installation</strong>
+                  <div style="font-size:0.75rem; color:#64748B;">Industrial & Specialized</div>
+                </td>
+                <td><span style="font-weight:700; color:var(--color-primary);">1kW - 100kW+</span></td>
+                <td>Tailored to Sanctioned DISCO Load</td>
+                <td>Custom Lithium or Tubular Bank</td>
+                <td><span style="font-weight:700; color:var(--color-primary);">Tailored Application</span></td>
+                <td><strong>Engineered per Load</strong></td>
+                <td>Factories, Tube-wells, Farmhouses</td>
+                <td>
+                  <button type="button" class="btn btn-primary" style="padding:7px 16px; font-size:0.75rem; font-weight:700;" onclick="openQuoteForSpecificPackage('Customized Solar Installation')">
+                    Get Quote
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2. Mobile Cards View (Optimized touch cards for screens <= 768px) -->
+        <div class="comparison-mobile-cards active-view" id="matrixCardsView">
+          
+          <!-- Card 1: Essential Home Solar -->
+          <div class="comp-mobile-card">
+            <span class="comp-mobile-badge" style="background:#EBF5F0; color:#0D3E2C;">Entry Tier Power Backup</span>
+            <div class="comp-mobile-header">
+              <div>
+                <h4 class="comp-mobile-title">Essential Home Solar</h4>
+                <div class="comp-mobile-sub">5 - 7 Marla Single Storey</div>
+              </div>
+              <div class="comp-mobile-capacity">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                3.2 kW
+              </div>
+            </div>
+            <div class="comp-mobile-specs-grid">
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Inverter:
+                </span>
+                <span class="comp-mobile-spec-val">3.2kW Pure Sine Wave Hybrid</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+                  Storage Backup:
+                </span>
+                <span class="comp-mobile-spec-val">Tubular 230Ah x 2 (Heavy Duty)</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  Net-Metering:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#64748B;">Optional Feasibility</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  Est. Generation:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#0D3E2C;">~400 - 480 Units/Mo</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  Ideal For:
+                </span>
+                <span class="comp-mobile-spec-val">5 - 7 Marla Single Storey</span>
+              </div>
+            </div>
+            <div class="comp-mobile-actions">
+              <button type="button" class="btn btn-primary" onclick="openQuoteForSpecificPackage('Essential Home Solar 3.2kW')">
+                Get Package Quote &rarr;
+              </button>
+              <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20inquiring%20about%20Essential%20Home%20Solar%203.2kW" target="_blank" rel="noopener" class="comp-mobile-whatsapp" aria-label="WhatsApp Quote">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Complete Home Solar (Featured Highlight) -->
+          <div class="comp-mobile-card featured-pkg">
+            <span class="comp-mobile-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A919" stroke="#E5A919" stroke-width="1.5" style="vertical-align:text-bottom; display:inline-block; margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Most Popular in Pakistan
+            </span>
+            <div class="comp-mobile-header">
+              <div>
+                <h4 class="comp-mobile-title" style="color:#0D3E2C;">Complete Home Solar</h4>
+                <div class="comp-mobile-sub">10 Marla - 1 Kanal (Runs 1.5T AC)</div>
+              </div>
+              <div class="comp-mobile-capacity" style="background:#0D3E2C; color:#FFFFFF;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                6.0 kW
+              </div>
+            </div>
+            <div class="comp-mobile-specs-grid">
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Inverter:
+                </span>
+                <span class="comp-mobile-spec-val">6kW Nitrox / Growatt Dual MPPT</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+                  Storage Backup:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#10B981;">5.12kWh LiFePO4 Lithium (6000 cycles)</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  Net-Metering:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#10B981;">Fully Included (Bi-Directional)</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  Est. Generation:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#0D3E2C;">~750 - 900 Units/Mo</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  Ideal For:
+                </span>
+                <span class="comp-mobile-spec-val">10 Marla - 1 Kanal (Runs 1.5T AC)</span>
+              </div>
+            </div>
+            <div class="comp-mobile-actions">
+              <button type="button" class="btn btn-primary" onclick="openQuoteForSpecificPackage('Complete Home Solar 6kW')" style="box-shadow:0 4px 12px rgba(13,62,44,0.3);">
+                Get Package Quote &rarr;
+              </button>
+              <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20inquiring%20about%20Complete%20Home%20Solar%206kW%20Hybrid" target="_blank" rel="noopener" class="comp-mobile-whatsapp" aria-label="WhatsApp Quote">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Commercial Solar -->
+          <div class="comp-mobile-card">
+            <span class="comp-mobile-badge" style="background:#FFF9E6; color:#92400E; border:1px solid #FDE68A;">Maximum Energy Export</span>
+            <div class="comp-mobile-header">
+              <div>
+                <h4 class="comp-mobile-title">Commercial Solar</h4>
+                <div class="comp-mobile-sub">Offices, Clinics, Schools, Plazas</div>
+              </div>
+              <div class="comp-mobile-capacity">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                10 - 20 kW
+              </div>
+            </div>
+            <div class="comp-mobile-specs-grid">
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Inverter:
+                </span>
+                <span class="comp-mobile-spec-val">3-Phase Huawei / Growatt High-Efficiency</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+                  Storage Backup:
+                </span>
+                <span class="comp-mobile-spec-val">Grid-Tied (No Battery Maintenance)</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  Net-Metering:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#10B981;">Full Export Ready</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  Est. Generation:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#0D3E2C;">~1,400 - 2,800 Units/Mo</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  Ideal For:
+                </span>
+                <span class="comp-mobile-spec-val">Offices, Clinics, Schools, Plazas</span>
+              </div>
+            </div>
+            <div class="comp-mobile-actions">
+              <button type="button" class="btn btn-primary" onclick="openQuoteForSpecificPackage('Commercial Solar 10-20kW')">
+                Get Package Quote &rarr;
+              </button>
+              <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20inquiring%20about%20Commercial%20Solar%2010-20kW" target="_blank" rel="noopener" class="comp-mobile-whatsapp" aria-label="WhatsApp Quote">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Customized Solar Installation -->
+          <div class="comp-mobile-card">
+            <span class="comp-mobile-badge" style="background:#F1F5F9; color:#475569;">Industrial & Specialized</span>
+            <div class="comp-mobile-header">
+              <div>
+                <h4 class="comp-mobile-title">Customized Solar Installation</h4>
+                <div class="comp-mobile-sub">Factories, Tube-wells, Farmhouses</div>
+              </div>
+              <div class="comp-mobile-capacity">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                1kW - 100kW+
+              </div>
+            </div>
+            <div class="comp-mobile-specs-grid">
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  Inverter:
+                </span>
+                <span class="comp-mobile-spec-val">Tailored to Sanctioned DISCO Load</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+                  Storage Backup:
+                </span>
+                <span class="comp-mobile-spec-val">Custom Lithium or Tubular Bank</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  Net-Metering:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:var(--color-primary);">Tailored Application</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  Est. Generation:
+                </span>
+                <span class="comp-mobile-spec-val" style="color:#0D3E2C;">Engineered per Load</span>
+              </div>
+              <div class="comp-mobile-spec-row">
+                <span class="comp-mobile-spec-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  Ideal For:
+                </span>
+                <span class="comp-mobile-spec-val">Factories, Tube-wells, Farmhouses</span>
+              </div>
+            </div>
+            <div class="comp-mobile-actions">
+              <button type="button" class="btn btn-primary" onclick="openQuoteForSpecificPackage('Customized Solar Installation')">
+                Get Package Quote &rarr;
+              </button>
+              <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20inquiring%20about%20Customized%20Solar%20Installation" target="_blank" rel="noopener" class="comp-mobile-whatsapp" aria-label="WhatsApp Quote">
+                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 6-Step Turnkey Solar Installation Journey -->
+      <section class="packages-journey-section">
+        <div style="text-align:center; max-width:680px; margin:0 auto;">
+          <span class="section-tag">How It Works</span>
+          <h2 class="section-title">The MZH Solar Installation Journey</h2>
+          <p class="section-subtitle">A transparent, hassle-free 6-step engineering process from initial rooftop audit to green meter commissioning.</p>
+        </div>
+
+        <div class="journey-grid">
+          <div class="journey-card">
+            <div class="journey-step-num">01</div>
+            <div class="journey-card-content">
+              <h4>Site Survey & Load Audit</h4>
+              <p>Certified engineers measure roof dimensions, assess shadow profiles, and analyze your past 12-month electricity bills.</p>
+            </div>
+          </div>
+          <div class="journey-card">
+            <div class="journey-step-num">02</div>
+            <div class="journey-card-content">
+              <h4>3D CAD & Structure Design</h4>
+              <p>Custom structural engineering (L2/L3 or elevated galvanised iron/aluminum) designed to resist extreme weather and maximize solar irradiance.</p>
+            </div>
+          </div>
+          <div class="journey-card">
+            <div class="journey-step-num">03</div>
+            <div class="journey-card-content">
+              <h4>Tier-1 Hardware Delivery</h4>
+              <p>Original Tier-1 Bloomberg modules, pure sine wave inverters, and battery banks delivered safely to your doorstep with authentic serial numbers.</p>
+            </div>
+          </div>
+          <div class="journey-card">
+            <div class="journey-step-num">04</div>
+            <div class="journey-card-content">
+              <h4>Precision Installation</h4>
+              <p>Complete mounting, pure copper DC wiring, high-grade AC/DC distribution boxes, and pure chemical copper earthing bore protection.</p>
+            </div>
+          </div>
+          <div class="journey-card">
+            <div class="journey-step-num">05</div>
+            <div class="journey-card-content">
+              <h4>DISCO Net-Metering Commissioning</h4>
+              <p>End-to-end liaison with LESCO, IESCO, FESCO, MEPCO, or KE for bi-directional Green Meter testing and license issuance.</p>
+            </div>
+          </div>
+          <div class="journey-card">
+            <div class="journey-step-num">06</div>
+            <div class="journey-card-content">
+              <h4>Mobile App Handover & Support</h4>
+              <p>Wi-Fi live generation dashboard setup on your smartphone, user training, and dedicated lifetime after-sales warranty support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Package Frequently Asked Questions -->
+      <section class="packages-faq-section">
+        <div style="text-align:center; max-width:650px; margin:0 auto;">
+          <span class="section-tag">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions About Packages</h2>
+          <p class="section-subtitle">Key answers to help you choose the best solar capacity for your home or business in Pakistan.</p>
+        </div>
+
+        <div class="faq-container-clean">
+          <div class="faq-item-clean active">
+            <div class="faq-header-clean" onclick="togglePackageFaq(this)">
+              <span>Can a 6kW solar system run a 1.5-ton Inverter AC?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-body-clean">
+              Yes, absolutely. A 6kW system produces between 25 to 30 units of electricity per day during peak sunshine hours. It can easily power a 1.5-ton inverter air conditioner during daytime while simultaneously running a refrigerator, deep freezer, LED lights, fans, and surveillance cameras with zero load-shedding.
+            </div>
+          </div>
+
+          <div class="faq-item-clean">
+            <div class="faq-header-clean" onclick="togglePackageFaq(this)">
+              <span>What is the difference between Hybrid and On-Grid solar packages?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-body-clean">
+              <strong>Hybrid Systems</strong> connect to both solar panels, grid electricity, and battery storage. If WAPDA fails, the hybrid inverter switches seamlessly to battery backup without turning off your appliances. <strong>On-Grid Systems</strong> do not have batteries; they export excess solar units directly to WAPDA via Net Metering to deduct your electricity bill, but shut down during grid outages for lineman safety.
+            </div>
+          </div>
+
+          <div class="faq-item-clean">
+            <div class="faq-header-clean" onclick="togglePackageFaq(this)">
+              <span>How long does the DISCO Net-Metering process take in Pakistan?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-body-clean">
+              The standard DISCO (LESCO, IESCO, FESCO, MEPCO, KE) Green Meter process typically takes 4 to 8 weeks from the date of initial application submission. MZH Solar handles all technical documentation, AEDB certification filing, DISCO inspection, and meter commissioning on your behalf.
+            </div>
+          </div>
+
+          <div class="faq-item-clean">
+            <div class="faq-header-clean" onclick="togglePackageFaq(this)">
+              <span>Why choose Lithium (LiFePO4) over Lead-Acid / Tubular batteries?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-body-clean">
+              LiFePO4 (Lithium Iron Phosphate) batteries offer 6,000+ deep cycles (10-15 years lifetime), zero maintenance (no acid or distilled water topping), 95% depth of discharge, compact wall-mount footprint, and 2-3 hours rapid recharge. Tubular batteries last 2-3 years, require frequent acid maintenance, and take 8-10 hours to recharge.
+            </div>
+          </div>
+
+          <div class="faq-item-clean">
+            <div class="faq-header-clean" onclick="togglePackageFaq(this)">
+              <span>What warranties are provided with MZH Solar packages?</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-body-clean">
+              All our turnkey systems include a 25-year linear power warranty on solar modules (minimum 84.8% performance at year 25), 5-year manufacturer warranty on hybrid/on-grid inverters, 5 to 10-year warranty on Lithium batteries (or 1-year on tubular), and 1-year comprehensive on-site installation and workmanship guarantee.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Urgent Consultation Banner -->
+      <div style="background:linear-gradient(135deg, #0D3E2C 0%, #15553C 100%); border-radius:20px; padding:36px; margin-top:64px; text-align:center; color:#FFFFFF; border:1px solid rgba(229,169,25,0.3); box-shadow:0 12px 30px rgba(0,0,0,0.15);">
+        <h3 style="font-size:1.625rem; font-weight:800; margin-bottom:8px;">Need a Tailored System for Your Specific Roof or Sanctioned Load?</h3>
+        <p style="font-size:0.9375rem; color:#CBD5E1; max-width:640px; margin:0 auto 24px;">Our solar engineers provide free on-site roof dimension audits, CAD shading calculations, and net-metering feasibility reports across Pakistan.</p>
+        <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary" onclick="openQuoteModal()" style="padding:13px 28px; font-weight:800;">
+            Request Free Site Assessment
+          </button>
+          <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20would%20like%20to%20schedule%20a%20free%20site%20assessment%20for%20my%20property" target="_blank" rel="noopener" class="header-whatsapp-cta" style="padding:13px 24px; font-size:0.9375rem;">
+            Chat with Solar Engineer on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 16. Alladin.pk Style Premium Footer -->
+  <footer class="main-footer">
+    <div class="container">
+
+      <!-- Newsletter Block -->
+      <div
+        style="background:#0D3E2C; border:1px solid rgba(229,169,25,0.25); border-radius:var(--radius-lg); padding:32px 36px; margin-bottom:48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+        <div style="max-width:500px;">
+          <span
+            style="display:inline-block; font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--color-accent); letter-spacing:0.06em; margin-bottom:4px;">Stay
+            Connected</span>
+          <h3 style="color:#FFFFFF; font-size:1.4rem; font-weight:800; margin-bottom:6px;">Stay Updated with Solar
+            Innovations</h3>
+          <p style="color:#CBD5E1; font-size:0.875rem; line-height:1.5;">Get early notifications on promotional
+            discounts, new inverter arrivals, and net-metering regulatory updates in Pakistan.</p>
+        </div>
+        <form style="display:flex; gap:10px; width:100%; max-width:440px;"
+          onsubmit="event.preventDefault(); showToast('Subscribed!', 'Thank you for subscribing to MZH Solar updates (Demo).', 'success');">
+          <input type="email" required placeholder="Enter your email address..."
+            style="flex:1; padding:12px 18px; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.3); color:#FFFFFF; font-size:0.875rem; outline:none;">
+          <button type="submit" class="btn btn-primary"
+            style="white-space:nowrap; padding:12px 24px;">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Demonstration Disclaimer -->
+      <div class="demo-disclaimer-box">
+        <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            style="vertical-align:text-bottom; display:inline-block; margin-right:4px;">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>Frontend Demonstration Notice:</strong> This website is an interactive e-commerce frontend demonstration
+        for MZH Solar. All product pricing (PKR), stock values, order tracking codes, and checkout processes are
+        simulated on the client-side using Vanilla JavaScript and LocalStorage.
+      </div>
+
+      <!-- Main Footer Columns -->
+      <div class="footer-top-grid">
+
+        <!-- Col 1: Brand Info & Socials -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="footer-logo-link" title="MZH Solar">
+            <img src="../assets/images/mzh-solar-logo.png" alt="MZH Solar Logo" class="footer-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            <strong>MZH Solar</strong> — Solar Energy Products, Turnkey Installation Solutions & CCTV Security
+            Equipment. Dedicated to engineering high-efficiency energy independence across Pakistan.
+          </p>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Main Boulevard, Gulberg III, Lahore, Pakistan</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span>Helpline: <a href="tel:03001234567"><strong>0300-1234567</strong></a></span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <span><a href="mailto:info@mzhsolar.com.pk">info@mzhsolar.com.pk</a></span>
+            </div>
+          </div>
+
+          <!-- Social Media Icons Row -->
+          <div class="footer-social-row">
+            <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="footer-social-btn"
+              title="Chat on WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn"
+              title="Facebook Page" aria-label="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-btn"
+              title="YouTube Channel" aria-label="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-btn"
+              title="LinkedIn Profile" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Solar Products -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Solar Products</h4>
+          <ul class="footer-links-list">
+            <li><a href="inverters.html">Solar Inverters & UPS</a></li>
+            <li><a href="inverters.html?sub=hybrid">Hybrid Solar Inverters</a></li>
+            <li><a href="inverters.html?sub=on-grid">On-Grid Solar Inverters</a></li>
+            <li><a href="inverters.html?sub=off-grid">Off-Grid Solar Inverters</a></li>
+            <li><a href="solar-panels.html">Monocrystalline Panels</a></li>
+            <li><a href="solar-panels.html">N-Type Bifacial Panels</a></li>
+            <li><a href="batteries.html">LiFePO4 Lithium Batteries</a></li>
+            <li><a href="charge-controllers.html">MPPT Charge Controllers</a></li>
+            <li><a href="accessories.html">Solar Mounting & Cables</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Security & Services -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Security & Solutions</h4>
+          <ul class="footer-links-list">
+            <li><a href="coffee-machines.html">Coffee Machines</a></li>
+            <li><a href="cctv-security.html">CCTV Cameras</a></li>
+            <li><a href="cctv-security.html?sub=ip">IP & PoE Cameras</a></li>
+            <li><a href="cctv-security.html?sub=wifi">Wireless Wi-Fi Cameras</a></li>
+            <li><a href="cctv-security.html?sub=recorders">DVR & NVR Recorders</a></li>
+            <li><a href="packages.html">Solar System Packages</a></li>
+            <li><a href="installation.html">Solar Installation Services</a></li>
+            <li><a href="hot-deals.html">Hot Promotional Deals</a></li>
+            <li><a href="quote.html">Solar Quote Calculator</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Quick Links & Support -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Customer Portal</h4>
+          <ul class="footer-links-list">
+            <li><a href="login.html">Customer Sign In</a></li>
+            <li><a href="register.html">Create New Account</a></li>
+            <li><a href="account.html">Customer Dashboard</a></li>
+            <li><a href="track-order.html">Track Your Order</a></li>
+            <li><a href="about.html">About MZH Solar</a></li>
+            <li><a href="faqs.html">Frequently Asked Questions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Trust & Certification Badges Strip -->
+      <div class="footer-cert-strip">
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <span>AEDB Net-Metering Certified</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span>Tier-1 Bloomberg Rated Modules</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          <span>100% Pure Sine Wave Guaranteed</span>
+        </div>
+        <div class="footer-cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>24/7 WhatsApp Helpline: 0300-1234567</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Strip -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>MZH Solar Pakistan</strong>. All rights reserved. Pure HTML5, CSS3, & Vanilla JavaScript.
+        </div>
+
+        <!-- Styled Payment Methods Badges -->
+        <div class="footer-payment-badges">
+          <span style="font-size:0.75rem; color:#94A3B8; margin-right:4px;">Supported (Demo):</span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="6" width="20" height="12" rx="2" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+            Cash on Delivery
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            Raast Instant Pay
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Bank Wire Transfer
+          </span>
+          <span class="payment-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+            Visa / MasterCard
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/app.js"></script>
+
+  <script>
+    // 1. Package Rendering Logic with Mathematically Exact Alignment
+    function renderPackageCard(pkg) {
+      const isRec = pkg.recommended;
+      let categoryType = "residential";
+      if (pkg.id === "pkg-03") categoryType = "commercial";
+      if (pkg.id === "pkg-04") categoryType = "custom";
+
+      return `
+        <div class="package-card ${isRec ? 'recommended' : ''}" id="${pkg.id}" data-category="${categoryType}">
+          ${pkg.badge ? `<span class="package-ribbon">${pkg.badge}</span>` : ''}
+          
+          <!-- Header Block: Title & Pricing -->
+          <div class="package-header-block">
+            <div class="package-title-wrap">
+              <div class="package-tier-label">${pkg.badge ? pkg.badge.split(' ')[0] + ' System Tier' : 'Turnkey Package'}</div>
+              <h3 class="package-title">${pkg.title}</h3>
+            </div>
+            <div class="package-pricing-badge">
+              <div class="package-capacity-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>${pkg.capacityPlaceholder}</span>
+              </div>
+              <div class="package-price-val">${pkg.pricePlaceholder}</div>
+              <div class="package-price-sub">Representative Turnkey Estimate</div>
+            </div>
+          </div>
+
+          <div class="package-divider"></div>
+
+          <!-- 3 Hardware Specs Side-by-Side in 3 Columns -->
+          <div class="package-hardware-grid">
+            <div class="pkg-hw-item">
+              <span class="pkg-hw-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Inverter Unit
+              </span>
+              <strong class="pkg-hw-val" title="${pkg.inverterCapacity}">${pkg.inverterCapacity}</strong>
+            </div>
+
+            <div class="pkg-hw-item">
+              <span class="pkg-hw-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+                Solar Panel Array
+              </span>
+              <strong class="pkg-hw-val" title="${pkg.panelCapacity}">${pkg.panelCapacity}</strong>
+            </div>
+
+            <div class="pkg-hw-item">
+              <span class="pkg-hw-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="7" y1="3" x2="7" y2="7"/><line x1="17" y1="3" x2="17" y2="7"/></svg>
+                Battery Bank
+              </span>
+              <strong class="pkg-hw-val" title="${pkg.batteryCapacity}">${pkg.batteryCapacity}</strong>
+            </div>
+          </div>
+
+          <!-- Load Coverage Box -->
+          <div class="package-load-box">
+            <div class="package-load-heading">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Recommended Load Coverage:
+            </div>
+            <p class="package-load-text">${pkg.idealFor}</p>
+          </div>
+
+          <!-- Deliverables Checklist (2 Columns Subgrid) -->
+          <div class="package-specs-list">
+            <div class="package-specs-heading">System Deliverables & Warranties:</div>
+            <div class="package-specs-subgrid">
+              ${pkg.features.map(f => `
+                <div class="package-spec-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>${f}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Actions Footer (Side-by-Side Pinned Buttons) -->
+          <div class="package-actions-footer">
+            <button type="button" class="btn ${isRec ? 'btn-primary' : 'btn-outline-primary'}" onclick="openQuoteForSpecificPackage('${pkg.title}')">
+              Request Package Quote &rarr;
+            </button>
+            <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20inquiring%20about%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(pkg.capacityPlaceholder)})" target="_blank" rel="noopener" class="pkg-whatsapp-btn">
+              <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. Package Filter Tabs Function
+    function filterPackages(category) {
+      const btns = document.querySelectorAll('.pkg-filter-btn');
+      btns.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === category));
+
+      const container = document.getElementById("fullPackagesGrid");
+      if (!container || typeof MZH_PACKAGES === "undefined") return;
+
+      let list = MZH_PACKAGES;
+      if (category === "residential") {
+        list = MZH_PACKAGES.filter(p => p.id === "pkg-01" || p.id === "pkg-02");
+      } else if (category === "commercial") {
+        list = MZH_PACKAGES.filter(p => p.id === "pkg-03");
+      } else if (category === "custom") {
+        list = MZH_PACKAGES.filter(p => p.id === "pkg-04");
+      }
+
+      if (list.length === 1) {
+        container.classList.add("single-card");
+      } else {
+        container.classList.remove("single-card");
+      }
+
+      container.innerHTML = list.map(renderPackageCard).join("");
+    }
+
+    // 3. Bill Estimator Data & Selection Logic
+    const BILL_TIERS = {
+      "3kw": {
+        system: "3.2 kW Essential Home Solar",
+        units: "~400 - 480 Units / Mo",
+        savings: "Up to 75% Relief",
+        payback: "~2.5 - 3.0 Years",
+        targetId: "pkg-01"
+      },
+      "6kw": {
+        system: "6.0 kW Complete Home Hybrid",
+        units: "~750 - 900 Units / Mo",
+        savings: "Up to 85% - 90% Relief",
+        payback: "~2.8 - 3.2 Years",
+        targetId: "pkg-02"
+      },
+      "10kw": {
+        system: "10 kW - 20 kW Commercial On-Grid",
+        units: "~1,400 - 2,800 Units / Mo",
+        savings: "Net-Zero Bill / Green Meter Export",
+        payback: "~3.0 - 3.5 Years",
+        targetId: "pkg-03"
+      },
+      "custom": {
+        system: "Custom Engineered Turnkey (30kW - 100kW+)",
+        units: "Custom Calculated per Load",
+        savings: "Up to 95% Peak Load Offset",
+        payback: "~3.2 - 4.0 Years",
+        targetId: "pkg-04"
+      }
+    };
+
+    function selectBillTier(tier) {
+      // Toggle button active state
+      const buttons = document.querySelectorAll(".bill-tab-btn");
+      buttons.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-tier") === tier));
+
+      const data = BILL_TIERS[tier];
+      if (!data) return;
+
+      document.getElementById("estSystemName").textContent = data.system;
+      document.getElementById("estUnits").textContent = data.units;
+      document.getElementById("estSavings").textContent = data.savings;
+      document.getElementById("estPayback").textContent = data.payback;
+
+      const ctaBtn = document.querySelector("#estimatorOutput button");
+      if (ctaBtn) {
+        ctaBtn.setAttribute("onclick", `scrollToPackage('${data.targetId}')`);
+      }
+    }
+
+    // 4. Smooth Scroll & Highlight Card
+    function scrollToPackage(id) {
+      filterPackages('all'); // Show all first so target is visible
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('pulse-highlight');
+          setTimeout(() => el.classList.remove('pulse-highlight'), 3000);
+        }
+      }, 50);
+    }
+
+    // 5. Quote Trigger Pre-Populated
+    function openQuoteForSpecificPackage(packageName) {
+      openQuoteModal();
+      const interestSelect = document.querySelector("#quoteModal select");
+      if (interestSelect) {
+        if (packageName.toLowerCase().includes("commercial")) {
+          interestSelect.value = "commercial";
+        } else if (packageName.toLowerCase().includes("hybrid") || packageName.toLowerCase().includes("complete")) {
+          interestSelect.selectedIndex = 0;
+        }
+      }
+    }
+
+    // 6. FAQ Accordion Toggle
+    function togglePackageFaq(headerEl) {
+      const item = headerEl.closest('.faq-item-clean');
+      const allItems = document.querySelectorAll('.faq-item-clean');
+      allItems.forEach(i => {
+        if (i !== item) i.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    }
+
+    // 7. Comparison Matrix View Toggle (Mobile Cards vs Full Table)
+    function toggleMatrixView(view) {
+      const cardsView = document.getElementById("matrixCardsView");
+      const tableView = document.getElementById("matrixTableView");
+      const btnCards = document.getElementById("btnMatrixCards");
+      const btnTable = document.getElementById("btnMatrixTable");
+      const hint = document.getElementById("matrixScrollHint");
+
+      if (view === "cards") {
+        if (cardsView) {
+          cardsView.classList.remove("hidden-view");
+          cardsView.classList.add("active-view");
+        }
+        if (tableView) {
+          tableView.classList.remove("active-view");
+          tableView.classList.add("hidden-view");
+        }
+        if (btnCards) btnCards.classList.add("active");
+        if (btnTable) btnTable.classList.remove("active");
+        if (hint) hint.style.display = "none";
+      } else {
+        if (cardsView) {
+          cardsView.classList.remove("active-view");
+          cardsView.classList.add("hidden-view");
+        }
+        if (tableView) {
+          tableView.classList.remove("hidden-view");
+          tableView.classList.add("active-view");
+        }
+        if (btnCards) btnCards.classList.remove("active");
+        if (btnTable) btnTable.classList.add("active");
+        if (hint) hint.style.display = "inline-flex";
+      }
+    }
+
+    // Initial Load
+    document.addEventListener("DOMContentLoaded", () => {
+      filterPackages('all');
+      if (window.innerWidth <= 768) {
+        toggleMatrixView('cards');
+      } else {
+        toggleMatrixView('table');
+      }
+    });
+  </script>
+
+</body>
+</html>
