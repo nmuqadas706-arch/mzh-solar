@@ -13,6 +13,7 @@ if (typeof document !== "undefined") {
     initFloatingWhatsApp();
     initCategoriesDropdown();
     initSearchAutocomplete();
+    initDynamicSearchHeader();
     initQuickViewModal();
     initCartDrawerTriggers();
     initBackToTop();
@@ -301,13 +302,15 @@ function initSearchAutocomplete() {
         return;
       }
 
-      const matches = getAllProducts().filter(p => 
-        p.name.toLowerCase().includes(query) ||
-        p.brand.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query) ||
-        p.subCategory.toLowerCase().includes(query) ||
-        p.shortSpec.toLowerCase().includes(query)
-      ).slice(0, 6);
+      const matches = typeof searchProducts === "function" 
+        ? searchProducts(query).slice(0, 6)
+        : getAllProducts().filter(p => 
+            p.name.toLowerCase().includes(query) ||
+            p.brand.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query) ||
+            p.subCategory.toLowerCase().includes(query) ||
+            p.shortSpec.toLowerCase().includes(query)
+          ).slice(0, 6);
 
       if (matches.length === 0) {
         dropdown.innerHTML = `
@@ -357,6 +360,135 @@ function initSearchAutocomplete() {
 // Relative path helper for root vs /pages/
 function getRelativePath() {
   return window.location.pathname.includes("/pages/") ? "../" : "";
+}
+
+// --- Dynamic Search Header & Trending Rotator ---
+function initDynamicSearchHeader() {
+  const searchInputs = document.querySelectorAll(".header-search-input, .alladin-search-input");
+  if (!searchInputs || searchInputs.length === 0) return;
+
+  const trendingBars = document.querySelectorAll(".trending-keywords-bar");
+
+  // Dynamic Typewriter / Cycling Search Placeholders
+  const searchPhrases = [
+    "Search inverters, panels, lithium batteries...",
+    "Search 'Inverex Nitrox 6kW'...",
+    "Search '580W Bifacial Solar Panels'...",
+    "Search 'Lithium 48V LiFePO4 Battery'...",
+    "Search 'Growatt 5kVA Hybrid Inverter'...",
+    "Search '4K CCTV Security Cameras'...",
+    "Search 'Longi Hi-MO 6 Solar Panels'...",
+    "Search 'Fronus & Crown Solar Inverters'..."
+  ];
+
+  let phraseIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let isUserTyping = false;
+  let typewriterTimeout = null;
+
+  searchInputs.forEach(input => {
+    input.addEventListener("focus", () => {
+      isUserTyping = true;
+      input.setAttribute("placeholder", "Type to search solar & security products...");
+    });
+    input.addEventListener("blur", () => {
+      if (!input.value.trim()) {
+        isUserTyping = false;
+        scheduleNextType();
+      }
+    });
+    input.addEventListener("input", () => {
+      isUserTyping = true;
+    });
+  });
+
+  function tickTypewriter() {
+    if (isUserTyping) return;
+
+    // Check if any search input has active text entered by user
+    const hasValue = Array.from(searchInputs).some(inp => inp.value.trim().length > 0);
+    if (hasValue) return;
+
+    const currentPhrase = searchPhrases[phraseIdx];
+
+    if (!isDeleting) {
+      charIdx++;
+      const partial = currentPhrase.substring(0, charIdx);
+      searchInputs.forEach(inp => inp.setAttribute("placeholder", partial));
+
+      if (charIdx === currentPhrase.length) {
+        isDeleting = true;
+        typewriterTimeout = setTimeout(tickTypewriter, 2400); // Pause on completed phrase
+        return;
+      }
+    } else {
+      charIdx--;
+      const partial = currentPhrase.substring(0, charIdx);
+      searchInputs.forEach(inp => inp.setAttribute("placeholder", partial));
+
+      if (charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % searchPhrases.length;
+        typewriterTimeout = setTimeout(tickTypewriter, 450); // Pause before next phrase
+        return;
+      }
+    }
+
+    const nextDelay = isDeleting ? 30 : 65;
+    typewriterTimeout = setTimeout(tickTypewriter, nextDelay);
+  }
+
+  function scheduleNextType() {
+    clearTimeout(typewriterTimeout);
+    typewriterTimeout = setTimeout(tickTypewriter, 350);
+  }
+
+  // Start typewriter after brief initial display
+  typewriterTimeout = setTimeout(tickTypewriter, 1500);
+
+  // Dynamic Trending Pills Active Rotator
+  trendingBars.forEach(bar => {
+    const pills = bar.querySelectorAll(".trending-pill");
+    if (!pills || pills.length === 0) return;
+
+    let activePillIndex = -1;
+    // Find initial active/featured pill if any
+    pills.forEach((p, idx) => {
+      if (p.classList.contains("featured") || p.classList.contains("active")) {
+        activePillIndex = idx;
+      }
+    });
+    if (activePillIndex === -1) activePillIndex = 3; // Default to Growatt 5kVA
+
+    setInterval(() => {
+      // Don't auto-rotate if the user is hovering over the trending bar
+      if (bar.matches(":hover")) return;
+
+      pills.forEach(p => {
+        p.classList.remove("featured");
+        p.classList.remove("active");
+      });
+
+      activePillIndex = (activePillIndex + 1) % pills.length;
+      pills[activePillIndex].classList.add("featured");
+    }, 3200);
+
+    // Dynamic hover & click interaction
+    pills.forEach((pill, idx) => {
+      pill.addEventListener("mouseenter", () => {
+        pills.forEach(p => p.classList.remove("featured", "active"));
+        pill.classList.add("featured");
+        activePillIndex = idx;
+      });
+
+      pill.addEventListener("click", (e) => {
+        e.preventDefault();
+        const term = pill.textContent.trim();
+        searchKeyword(term);
+      });
+    });
+  });
 }
 
 // --- 4. Product Card Template Generator ---
@@ -1362,13 +1494,47 @@ function scrollCarousel(containerId, distance) {
 
 // --- 15. Quick Search via Trending Pill ---
 function searchKeyword(term) {
-  const input = document.querySelector(".alladin-search-input") || document.querySelector(".header-search-input");
-  if (input) {
-    input.value = term;
-    const form = input.closest("form");
-    if (form) form.dispatchEvent(new Event("submit"));
+  if (!term || typeof term !== "string") return;
+  const cleanTerm = term.trim();
+  if (!cleanTerm) return;
+
+  // 1. Populate all search bars on the page with the exact selected item's name
+  const allSearchInputs = document.querySelectorAll(".header-search-input, .alladin-search-input, #mainSearchInput, .mobile-search-input");
+  allSearchInputs.forEach(inp => {
+    inp.value = cleanTerm;
+  });
+
+  // 2. Mark this trending pill active across all bars
+  const allTrendingPills = document.querySelectorAll(".trending-pill");
+  allTrendingPills.forEach(pill => {
+    if (pill.textContent.trim().toLowerCase() === cleanTerm.toLowerCase()) {
+      pill.classList.add("featured", "active");
+    } else {
+      pill.classList.remove("featured", "active");
+    }
+  });
+
+  // 3. Determine if currently on search.html
+  const isSearchPage = window.location.pathname.endsWith("search.html") || window.location.pathname.includes("/search.html");
+
+  if (isSearchPage) {
+    // Already on search page: update URL params and trigger performSearch() dynamically
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.delete("filter");
+    newUrl.searchParams.set("q", cleanTerm);
+    window.history.pushState({}, "", newUrl);
+
+    if (typeof performSearch === "function") {
+      performSearch();
+    }
+    const heading = document.getElementById("pageSearchHeading");
+    if (heading) {
+      heading.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   } else {
-    window.location.href = `${getRelativePath()}pages/search.html?q=${encodeURIComponent(term)}`;
+    // On another page: navigate to search page with the query
+    const rel = typeof getRelativePath === "function" ? getRelativePath() : (window.location.pathname.includes("/pages/") ? "../" : "");
+    window.location.href = `${rel}pages/search.html?q=${encodeURIComponent(cleanTerm)}`;
   }
 }
 

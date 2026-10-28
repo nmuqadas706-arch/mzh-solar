@@ -100,7 +100,7 @@ img, svg, video {
   .header-top-row {
     flex-wrap: wrap;
     gap: 8px;
-    padding: 10px 0;
+    padding: 8px 0;
     align-items: center;
     justify-content: space-between;
   }
@@ -136,7 +136,8 @@ img, svg, video {
   }
 
   .brand-logo-img {
-    height: 44px;
+    height: 78px;
+    max-height: 80px;
   }
 
   /* Mobile Account Dropdown Popover (<= 992px) */
@@ -404,6 +405,11 @@ img, svg, video {
    3. Small Tablets & Phablets (<= 768px)
    ========================================================================== */
 @media (max-width: 768px) {
+  .brand-logo-img {
+    height: 70px;
+    max-height: 72px;
+  }
+
   .section-padding {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -1036,12 +1042,13 @@ img, svg, video {
   }
 
   .footer-logo-link {
-    padding: 8px 18px !important;
+    padding: 12px 22px !important;
     margin-bottom: 14px !important;
   }
 
   .footer-logo-img {
-    height: 48px !important;
+    height: 64px !important;
+    max-height: 64px !important;
   }
 
   .footer-brand-desc {
@@ -1550,11 +1557,19 @@ img, svg, video {
 }
 
 .mobile-nav-header {
-  padding: 18px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.mobile-nav-header img {
+  height: 68px !important;
+  max-height: 70px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block;
 }
 
 .mobile-nav-body {
@@ -1675,6 +1690,11 @@ img, svg, video {
    5. Standard Smartphones (<= 576px)
    ========================================================================== */
 @media (max-width: 576px) {
+  .brand-logo-img {
+    height: 64px;
+    max-height: 66px;
+  }
+
   .header-actions .header-whatsapp-cta {
     display: none; /* Kept in mobile drawer and footer */
   }
@@ -2171,6 +2191,11 @@ img, svg, video {
    6. Compact / Ultra-Narrow Phones (<= 480px)
    ========================================================================== */
 @media (max-width: 480px) {
+  .brand-logo-img {
+    height: 58px;
+    max-height: 60px;
+  }
+
   /* Header: tighter actions */
   .header-actions {
     gap: 5px !important;
@@ -2278,6 +2303,11 @@ img, svg, video {
    7. Compact / Ultra-Narrow Phones (<= 360px)
    ========================================================================== */
 @media (max-width: 360px) {
+  .brand-logo-img {
+    height: 50px;
+    max-height: 52px;
+  }
+
   .container {
     padding-left: 12px !important;
     padding-right: 12px !important;

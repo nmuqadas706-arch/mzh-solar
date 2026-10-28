@@ -1048,6 +1048,72 @@ function getFeaturedProducts() {
   return MZH_PRODUCTS.filter(p => p.isFeatured);
 }
 
+/**
+ * Dynamic Smart Search across product catalog
+ * Supports:
+ * - Case-insensitive matching
+ * - Partial-name and substring matching
+ * - Multi-token / multi-word search (e.g. "Lithium 48V" matches "Narada 48V ... Lithium ...")
+ * - Solar electrical unit synonyms (e.g. "5kVA" <-> "5kW" <-> "5000", "6kW" <-> "6kVA" <-> "6000")
+ * - Search across name, brand, category, subCategory, shortSpec, specs, and description
+ */
+function searchProducts(query) {
+  if (!query || typeof query !== "string") return getAllProducts();
+  const clean = query.trim().toLowerCase();
+  if (!clean) return getAllProducts();
+
+  const all = getAllProducts();
+
+  return all.filter(p => {
+    const specValues = p.specs ? Object.values(p.specs).join(" ") : "";
+    const searchable = [
+      p.name,
+      p.brand,
+      p.category,
+      p.subCategory,
+      p.shortSpec,
+      specValues,
+      p.description
+    ].filter(Boolean).join(" ").toLowerCase();
+
+    // 1. Direct full substring match
+    if (searchable.includes(clean)) return true;
+
+    // 2. Tokenized multi-term match
+    const rawTokens = clean.split(/\s+/).filter(Boolean);
+    if (rawTokens.length === 0) return true;
+
+    return rawTokens.every(tok => {
+      // Direct token match
+      if (searchable.includes(tok)) return true;
+
+      // Handle kva / kw synonyms (e.g. 5kva -> 5kw / 5000)
+      const kvaMatch = tok.match(/^(\d+(?:\.\d+)?)kva$/);
+      if (kvaMatch) {
+        const num = kvaMatch[1];
+        const thousands = String(parseFloat(num) * 1000);
+        const re = new RegExp('\\b(' + num + 'kw|' + num + ' kw|' + thousands + '|' + thousands + 'w|' + thousands + 'va)\\b', 'i');
+        return re.test(searchable);
+      }
+
+      const kwMatch = tok.match(/^(\d+(?:\.\d+)?)kw$/);
+      if (kwMatch) {
+        const num = kwMatch[1];
+        const thousands = String(parseFloat(num) * 1000);
+        const re = new RegExp('\\b(' + num + 'kva|' + num + ' kva|' + thousands + '|' + thousands + 'w|' + thousands + 'va)\\b', 'i');
+        return re.test(searchable);
+      }
+
+      // Handle CCTV / camera terms
+      if (tok === "cctv") {
+        return searchable.includes("camera") || searchable.includes("security") || searchable.includes("surveillance") || searchable.includes("nvr") || searchable.includes("dvr");
+      }
+
+      return false;
+    });
+  });
+}
+
 function formatPKR(amount) {
   return "PKR " + Number(amount).toLocaleString('en-PK');
 }
