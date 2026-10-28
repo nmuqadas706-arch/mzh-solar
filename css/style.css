@@ -2961,9 +2961,9 @@ ul, ol {
 
 /* Expanded, Prominent Predictive Search */
 .alladin-search-wrapper {
-  flex: 1 1 480px;
-  max-width: 580px;
-  margin: 0;
+  flex: 1 1 680px;
+  max-width: 720px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -2975,6 +2975,7 @@ ul, ol {
   border-radius: 50px;
   padding: 3px 5px 3px 20px;
   height: 48px;
+  width: 100%;
   transition: all var(--transition-fast);
 }
 
@@ -3050,45 +3051,13 @@ ul, ol {
   display: none;
 }
 
-/* Trending Searches Strip */
+/* Trending Searches Strip - Completely removed to eliminate clutter & extra space */
 .trending-keywords-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 6px;
-  flex-wrap: wrap;
-}
-
-.trending-keywords-bar span {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #64748B;
-  line-height: 1;
-}
-
-.trending-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 8px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #0D3E2C;
-  background-color: #EBF7EE;
-  border-radius: 4px;
-  text-decoration: none;
-  line-height: 1.2;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.trending-pill:hover,
-.trending-pill.featured,
-.trending-pill.active {
-  background-color: #0D3E2C;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(13, 62, 44, 0.2);
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 /* ==========================================================================
@@ -3375,6 +3344,12 @@ ul, ol {
   z-index: 99;
 }
 
+@media (min-width: 993px) {
+  .header-nav-bar {
+    margin-top: -18px;
+  }
+}
+
 .header-nav-container {
   display: flex;
   align-items: center;
@@ -3557,8 +3532,11 @@ ul, ol {
   }
   .alladin-search-wrapper {
     flex: 1 1 auto;
-    max-width: 520px;
-    margin: 0;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .header-nav-bar {
+    margin-top: -16px;
   }
   .header-nav-container {
     padding-left: 20px;
@@ -3615,11 +3593,14 @@ ul, ol {
   }
   .alladin-search-wrapper {
     flex: 1 1 auto;
-    max-width: 460px;
-    margin: 0;
+    max-width: 520px;
+    margin: 0 auto;
   }
   .alladin-search-form {
     height: 42px;
+  }
+  .header-nav-bar {
+    margin-top: -14px;
   }
   .header-actions {
     gap: 6px;
@@ -3683,12 +3664,15 @@ ul, ol {
   }
   .alladin-search-wrapper {
     flex: 1 1 auto;
-    max-width: 400px;
-    margin: 0;
+    max-width: 440px;
+    margin: 0 auto;
   }
   .alladin-search-form {
     height: 40px;
     padding: 2px 4px 2px 14px;
+  }
+  .header-nav-bar {
+    margin-top: -12px;
   }
   .header-actions {
     gap: 6px;
