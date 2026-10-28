@@ -2952,10 +2952,10 @@ ul, ol {
   line-height: 1.2;
 }
 
-/* Wide Predictive Search */
+/* Compact Predictive Search */
 .alladin-search-wrapper {
-  flex: 1;
-  max-width: 520px;
+  flex: 0 1 300px;
+  max-width: 320px;
   position: relative;
 }
 
@@ -2965,14 +2965,15 @@ ul, ol {
   background-color: #F8FAFC;
   border: 1.5px solid #CBD5E1;
   border-radius: 50px;
-  padding: 3px 6px 3px 20px;
+  padding: 2px 4px 2px 14px;
+  height: 38px;
   transition: all var(--transition-fast);
 }
 
 .alladin-search-form:focus-within {
   border-color: var(--color-primary);
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(13, 62, 44, 0.12);
+  box-shadow: 0 0 0 3px rgba(13, 62, 44, 0.12);
 }
 
 .alladin-search-input {
@@ -2980,16 +2981,18 @@ ul, ol {
   border: none;
   background: transparent;
   outline: none;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--color-charcoal);
   min-width: 0;
+  padding: 0 6px 0 0;
 }
 
 .alladin-search-btn {
   background-color: var(--color-primary);
   color: #FFFFFF;
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2997,6 +3000,13 @@ ul, ol {
   transition: all var(--transition-fast);
   border: none;
   cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.alladin-search-btn svg {
+  width: 14px;
+  height: 14px;
 }
 
 .alladin-search-btn:hover {
@@ -3004,32 +3014,306 @@ ul, ol {
   transform: scale(1.05);
 }
 
-/* Trending Keywords Popup */
+/* Mobile search close button inside expanded form */
+.search-close-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #64748B;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 6px;
+  margin-left: 2px;
+  transition: color var(--transition-fast);
+}
+
+.search-close-btn:hover {
+  color: #0F172A;
+}
+
+/* Compact Search Icon Toggle in Header Actions (Mobile) */
+.header-search-toggle-btn {
+  display: none;
+}
+
+/* Trending Keywords Strip - kept hidden to maintain compact header */
 .trending-keywords-bar {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Mobile Top Navbar — 5 Direct Navigation Options (Home, About Us, Services, Ecommerce, Contact Us)
+   ========================================================================== */
+.mobile-top-nav {
+  display: none; /* Hidden on desktop */
+  width: 100%;
+  background: #0D3E2C;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1002;
+  overflow: visible !important;
+}
+
+.mobile-top-nav-inner {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 6px;
-  font-size: 0.75rem;
-  color: var(--color-charcoal-muted);
-  overflow-x: auto;
-  white-space: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+  margin: 0 auto;
+  overflow: visible !important;
+  position: relative;
 }
 
-.trending-pill {
-  color: var(--color-primary);
-  background: var(--color-primary-soft);
-  padding: 2px 9px;
-  border-radius: 12px;
-  text-decoration: none;
+.mobile-top-nav-link {
+  flex: 1 1 0;
+  text-align: center;
+  padding: 10px 4px;
+  font-size: 0.78rem;
   font-weight: 600;
-  transition: all var(--transition-fast);
-  font-size: 0.72rem;
+  color: #E2E8F0;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
 }
 
-.trending-pill:hover {
-  background: var(--color-primary);
+.mobile-top-nav-link:hover,
+.mobile-top-nav-link:focus {
   color: #FFFFFF;
+}
+
+.mobile-top-nav-link.active {
+  color: #F3BA2F;
+  font-weight: 700;
+}
+
+.mobile-top-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12%;
+  right: 12%;
+  height: 3px;
+  background: #F3BA2F;
+  border-radius: 3px 3px 0 0;
+}
+
+/* ==========================================================================
+   Ecommerce Dropdown Navigation — Mobile & Desktop
+   ========================================================================== */
+
+/* --- Mobile Dropdown --- */
+.mobile-top-nav-item {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mobile-dropdown-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  font-family: inherit;
+  color: #E2E8F0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 10px 2px;
+  min-height: 40px;
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.mobile-dropdown-toggle:hover,
+.mobile-dropdown-toggle:focus {
+  color: #FFFFFF;
+}
+
+.mobile-nav-dropdown.active .mobile-dropdown-toggle,
+.mobile-dropdown-toggle.active {
+  color: #F3BA2F;
+  font-weight: 700;
+}
+
+.mobile-nav-dropdown.active .mobile-dropdown-toggle::after,
+.mobile-dropdown-toggle.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: #F3BA2F;
+  border-radius: 3px 3px 0 0;
+}
+
+.mobile-dropdown-toggle .dropdown-chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.mobile-nav-dropdown.open .mobile-dropdown-toggle .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  min-width: 180px;
+  background: #08281D;
+  border: 1.5px solid rgba(243, 186, 47, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 6px 0;
+  z-index: 99999 !important;
+  display: none;
+}
+
+.mobile-nav-dropdown.open .mobile-dropdown-menu {
+  display: block !important;
+  animation: mobileDropdownSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes mobileDropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #E2E8F0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.mobile-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-dropdown-item svg {
+  color: #F3BA2F;
+  flex-shrink: 0;
+}
+
+.mobile-dropdown-item:hover,
+.mobile-dropdown-item:active,
+.mobile-dropdown-item.active {
+  background: rgba(243, 186, 47, 0.12);
+  color: #F3BA2F;
+  padding-left: 19px;
+}
+
+
+
+/* ==========================================================================
+   Floating WhatsApp Button — Persistent across all pages
+   ========================================================================== */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  color: #FFFFFF !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.18);
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.floating-whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.5;
+  animation: waFloatingPulse 2.4s infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes waFloatingPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.floating-whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #192024;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.floating-whatsapp-btn:hover .floating-whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(-2px);
 }
 
 /* Navigation Bar (Second Tier) */
@@ -3057,12 +3341,12 @@ ul, ol {
 .categories-menu-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: linear-gradient(135deg, #F3BA2F 0%, #E5A919 100%);
   color: #07251A;
-  font-size: 0.9375rem;
+  font-size: 0.90rem;
   font-weight: 800;
-  padding: 0 20px;
+  padding: 0 16px;
   height: 50px;
   border-radius: 0;
   transition: all var(--transition-fast);
@@ -3092,22 +3376,31 @@ ul, ol {
 .nav-links-dark {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3px;
-  margin: 0 6px;
+  justify-content: flex-start;
+  gap: 2px;
+  margin: 0 8px;
+  padding: 0 2px;
   flex: 1;
   min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-links-dark::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link-dark {
-  font-size: 0.8125rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #E2E8F0;
-  padding: 8px 8px;
+  padding: 7px 6px;
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   position: relative;
   white-space: nowrap;
   flex-shrink: 0;
@@ -3171,71 +3464,8 @@ ul, ol {
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   margin-left: auto;
-}
-
-@media (max-width: 1400px) and (min-width: 993px) {
-  .header-nav-container {
-    padding-left: 12px;
-    padding-right: 12px;
-    gap: 6px;
-  }
-  .categories-menu-btn {
-    padding: 0 14px;
-    font-size: 0.85rem;
-    gap: 6px;
-  }
-  .nav-links-dark {
-    gap: 1px;
-    margin: 0 2px;
-  }
-  .nav-link-dark {
-    padding: 7px 5px;
-    font-size: 0.76rem;
-  }
-  .nav-link-dark::after {
-    left: 5px;
-    right: 5px;
-  }
-  .header-quote-nav-cta {
-    padding: 0 12px;
-    height: 36px;
-    font-size: 0.76rem;
-    gap: 6px;
-  }
-}
-
-@media (max-width: 1180px) and (min-width: 993px) {
-  .header-nav-container {
-    padding-left: 6px;
-    padding-right: 6px;
-    gap: 4px;
-  }
-  .categories-menu-btn {
-    padding: 0 10px;
-    font-size: 0.8rem;
-    gap: 4px;
-  }
-  .nav-links-dark {
-    gap: 0;
-    margin: 0;
-  }
-  .nav-link-dark {
-    padding: 6px 3.5px;
-    font-size: 0.71rem;
-  }
-  .nav-link-dark::after {
-    left: 3px;
-    right: 3px;
-  }
-  .header-quote-nav-cta {
-    padding: 0 8px;
-    height: 32px;
-    font-size: 0.71rem;
-    gap: 4px;
-  }
-  .header-quote-nav-cta svg {
-    display: none;
-  }
+  position: relative;
+  z-index: 2;
 }
 
 .header-quote-nav-cta svg {
@@ -3250,6 +3480,228 @@ ul, ol {
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(229, 169, 25, 0.5);
   color: #051A12;
+}
+
+.categories-dropdown {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Desktop Navbar Alignment & Multi-Tier Responsiveness (min-width: 993px)
+   Prevents overlapping, distortion, and wrapping across all desktop widths
+   ========================================================================== */
+
+/* Tier 1 & 2: Large Laptops / Standard Desktop (1200px to 1399px) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .header-top-row {
+    gap: 16px;
+    padding: 12px 0;
+  }
+  .alladin-search-wrapper {
+    flex: 0 1 260px;
+    max-width: 280px;
+  }
+  .header-nav-container {
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 8px;
+    min-height: 48px;
+  }
+  .categories-menu-btn {
+    padding: 0 12px;
+    font-size: 0.82rem;
+    gap: 6px;
+    height: 48px;
+  }
+  .nav-links-dark {
+    gap: 2px;
+    margin: 0 6px;
+  }
+  .nav-link-dark {
+    padding: 6px 4.5px;
+    font-size: 0.74rem;
+    gap: 2.5px;
+  }
+  .nav-link-dark::after {
+    left: 5px;
+    right: 5px;
+  }
+  .hot-deal-badge {
+    padding: 1px 4px;
+    font-size: 0.62rem;
+  }
+  .header-quote-nav-cta {
+    padding: 0 12px;
+    height: 35px;
+    font-size: 0.75rem;
+    gap: 5px;
+  }
+}
+
+/* Tier 1 & 2: Compact Laptops (1080px to 1199px) */
+@media (max-width: 1199px) and (min-width: 1080px) {
+  .header-top-row {
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .brand-logo-img {
+    height: 44px;
+  }
+  .header-helpline-box {
+    padding: 4px 10px;
+    gap: 8px;
+  }
+  .helpline-icon-wrap {
+    width: 30px;
+    height: 30px;
+  }
+  .helpline-text-label {
+    font-size: 0.65rem;
+  }
+  .helpline-number {
+    font-size: 0.84rem;
+  }
+  .alladin-search-wrapper {
+    flex: 1 1 200px;
+    max-width: 230px;
+  }
+  .alladin-search-form {
+    height: 36px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .header-action-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .header-whatsapp-cta {
+    padding: 0 10px;
+    font-size: 0.8125rem;
+    height: 38px;
+    gap: 6px;
+  }
+  .header-nav-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 6px;
+    min-height: 46px;
+  }
+  .categories-menu-btn {
+    padding: 0 10px;
+    font-size: 0.79rem;
+    gap: 5px;
+    height: 46px;
+  }
+  .nav-links-dark {
+    gap: 1px;
+    margin: 0 4px;
+  }
+  .nav-link-dark {
+    padding: 5px 3.5px;
+    font-size: 0.70rem;
+    gap: 2px;
+  }
+  .nav-link-dark::after {
+    left: 4px;
+    right: 4px;
+  }
+  .hot-deal-badge {
+    padding: 1px 3px;
+    font-size: 0.58rem;
+  }
+  .header-quote-nav-cta {
+    padding: 0 10px;
+    height: 33px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+}
+
+/* Tier 1 & 2: Small Desktops / Tablets Landscape (993px to 1079px) */
+@media (max-width: 1079px) and (min-width: 993px) {
+  .header-top-row {
+    gap: 8px;
+    padding: 8px 0;
+  }
+  .brand-logo-img {
+    height: 40px;
+  }
+  .header-helpline-box {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+  .helpline-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  .helpline-text-label {
+    display: none;
+  }
+  .helpline-number {
+    font-size: 0.8125rem;
+  }
+  .alladin-search-wrapper {
+    flex: 1 1 150px;
+    max-width: 190px;
+  }
+  .alladin-search-form {
+    height: 34px;
+    padding: 2px 4px 2px 10px;
+  }
+  .header-actions {
+    gap: 4px;
+  }
+  .header-action-btn {
+    width: 35px;
+    height: 35px;
+  }
+  .header-whatsapp-cta {
+    padding: 0 8px;
+    font-size: 0.75rem;
+    height: 35px;
+    gap: 4px;
+  }
+  .header-nav-container {
+    padding-left: 6px;
+    padding-right: 6px;
+    gap: 4px;
+    min-height: 44px;
+  }
+  .categories-menu-btn {
+    padding: 0 8px;
+    font-size: 0.75rem;
+    gap: 4px;
+    height: 44px;
+  }
+  .nav-links-dark {
+    gap: 0;
+    margin: 0 3px;
+  }
+  .nav-link-dark {
+    padding: 5px 2px;
+    font-size: 0.67rem;
+    gap: 1.5px;
+  }
+  .nav-link-dark::after {
+    left: 2px;
+    right: 2px;
+  }
+  .hot-deal-badge {
+    padding: 1px 3px;
+    font-size: 0.55rem;
+  }
+  .header-quote-nav-cta {
+    padding: 0 8px;
+    height: 31px;
+    font-size: 0.69rem;
+    gap: 3px;
+  }
+  .header-quote-nav-cta svg {
+    display: none;
+  }
 }
 
 /* Ecommerce Dropdown (Desktop Nav) */
@@ -5174,7 +5626,7 @@ ul, ol {
   border: 1px solid #CBD5E1;
   border-radius: var(--radius-md);
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
+  z-index: 99999;
   overflow: hidden;
   animation: popoverFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }

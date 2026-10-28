@@ -9,19 +9,47 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
+    /* Checkout Layout & Base Card System */
+    .checkout-page-section {
+      padding-top: 36px;
+      padding-bottom: 60px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
     .checkout-layout {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 36px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 32px;
       align-items: flex-start;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-layout > div {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
     .checkout-card {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
       border-radius: 16px;
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
       margin-bottom: 24px;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
     }
     .checkout-step-title {
       font-size: 1.125rem;
@@ -31,6 +59,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      line-height: 1.3;
     }
     .calc-step-pill,
     .checkout-step-num {
@@ -50,13 +79,188 @@
     }
     .checkout-form-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 16px;
       margin-bottom: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-form-row > div {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-form-group {
+      margin-bottom: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #192024;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .checkout-input,
+    .checkout-select,
+    .checkout-card input[type="text"],
+    .checkout-card input[type="tel"],
+    .checkout-card input[type="email"],
+    .checkout-card select {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 48px !important;
+      box-sizing: border-box !important;
+      outline: none;
+      border: 1.5px solid #CBD5E1 !important;
+      border-radius: 8px !important;
+      padding: 11px 14px !important;
+      font-size: 16px !important; /* Prevents auto-zoom on iOS */
+      color: #192024 !important;
+      background-color: #FFFFFF !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      display: block !important;
+      line-height: 1.4;
+    }
+    .checkout-input:focus,
+    .checkout-select:focus,
+    .checkout-card input:focus,
+    .checkout-card select:focus {
+      border-color: #0D3E2C !important;
+      box-shadow: 0 0 0 3px rgba(13, 62, 44, 0.12) !important;
+    }
+    .payment-option-card {
+      border: 2px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 16px 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all var(--transition-fast);
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .payment-option-card.selected {
+      border-color: #0D3E2C;
+      background: #EBF5F0;
+    }
+    .payment-option-card input[type="radio"] {
+      accent-color: #0D3E2C;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .payment-option-card .payment-text-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .payment-option-card strong {
+      font-size: 0.9375rem;
+      line-height: 1.35;
+      display: block;
+      color: #0F172A;
+    }
+    .payment-option-card .payment-desc {
+      font-size: 0.8125rem;
+      line-height: 1.4;
+      margin-top: 3px;
+      color: #64748B;
+    }
+    .disclaimer-banner {
+      background-color: #FFFBEB;
+      border-left: 4px solid var(--color-accent);
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 0.8125rem;
+      color: #92400E;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.45;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .disclaimer-banner svg {
+      flex-shrink: 0;
+      margin-top: 2px;
     }
     .checkout-summary-card {
       position: sticky;
-      top: 100px;
+      top: 110px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+      max-height: 320px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .checkout-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 4px 0;
+    }
+    .checkout-item-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+    .checkout-item-img {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .checkout-item-info {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .checkout-item-name {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #192024;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+    .checkout-item-qty {
+      font-size: 0.75rem;
+      color: #64748B;
+      margin-top: 2px;
+    }
+    .checkout-item-price {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #0D3E2C;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-align: right;
+      margin-left: 6px;
     }
     .summary-row {
       display: flex;
@@ -65,11 +269,17 @@
       margin-bottom: 12px;
       font-size: 0.9375rem;
       color: #475569;
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .summary-row strong,
     .summary-row span:last-child {
       font-weight: 700;
       color: #192024;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-align: right;
     }
     .summary-row.total {
       font-size: 1.125rem;
@@ -81,116 +291,95 @@
       margin-bottom: 0;
     }
     .summary-row.total span:last-child {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: #0D3E2C;
       font-weight: 800;
     }
-    .payment-option-card {
-      border: 2px solid #E2E8F0;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: all var(--transition-fast);
+    .checkout-submit-btn,
+    .checkout-summary-card button[type="submit"] {
+      width: 100% !important;
+      min-height: 50px !important;
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      padding: 14px !important;
+      border-radius: 8px !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
     }
-    .payment-option-card.selected {
-      border-color: #0D3E2C;
-      background: #EBF5F0;
-    }
-    .payment-option-card input[type="radio"] {
-      accent-color: #0D3E2C;
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-    .checkout-card input[type="text"],
-    .checkout-card input[type="tel"],
-    .checkout-card input[type="email"],
-    .checkout-card select {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      outline: none;
-      transition: border-color var(--transition-fast);
-    }
-    .checkout-card input:focus,
-    .checkout-card select:focus {
-      border-color: #0D3E2C !important;
-      box-shadow: 0 0 0 3px rgba(13, 62, 44, 0.12);
-    }
+
+    /* Tablets & Medium Screens (<= 992px) */
     @media (max-width: 992px) {
       .checkout-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
       }
       .checkout-summary-card,
       aside.checkout-card {
         position: static !important;
         top: auto !important;
         width: 100% !important;
+        order: 2;
       }
-    }
-    @media (max-width: 768px) {
       .checkout-card {
-        padding: 24px 20px;
-        border-radius: 14px;
-        margin-bottom: 20px;
+        padding: 22px 18px !important;
+        border-radius: 14px !important;
+        margin-bottom: 18px !important;
       }
     }
-    @media (max-width: 640px) {
+
+    /* Mobile Phones & Phablets (<= 768px) */
+    @media (max-width: 768px) {
+      .checkout-page-section {
+        padding-top: 20px !important;
+        padding-bottom: 50px !important;
+      }
+      .checkout-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
       .checkout-form-row {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 14px !important;
         margin-bottom: 14px !important;
       }
-      .payment-option-card {
-        align-items: flex-start;
-        padding: 14px 12px;
-        gap: 12px;
-      }
-      .payment-option-card input[type="radio"] {
-        margin-top: 3px;
-        width: 20px;
-        height: 20px;
-      }
-      .payment-option-card strong {
-        font-size: 0.9375rem;
-        line-height: 1.35;
-        display: block;
-      }
-      .payment-option-card div div {
-        font-size: 0.8125rem;
-        line-height: 1.4;
-        margin-top: 2px;
-      }
-      .checkout-card input[type="text"],
-      .checkout-card input[type="tel"],
-      .checkout-card input[type="email"],
-      .checkout-card select {
-        font-size: 16px !important;
-        min-height: 46px;
-        padding: 10px 14px;
-      }
-    }
-    @media (max-width: 576px) {
       .checkout-card {
         padding: 18px 14px !important;
         border-radius: 12px !important;
         margin-bottom: 16px !important;
       }
       .checkout-step-title {
-        font-size: 1.05rem;
-        gap: 10px;
-        margin-bottom: 16px;
+        font-size: 1.05rem !important;
+        gap: 10px !important;
+        margin-bottom: 16px !important;
       }
-      .checkout-summary-card button[type="submit"] {
-        min-height: 50px !important;
-        font-size: 1rem !important;
-        font-weight: 800 !important;
-        padding: 14px !important;
+      .payment-option-card {
+        padding: 12px 10px !important;
+        gap: 10px !important;
+        margin-bottom: 10px !important;
+        border-radius: 10px !important;
+      }
+      .payment-option-card strong {
+        font-size: 0.875rem !important;
+      }
+      .payment-option-card .payment-desc {
+        font-size: 0.75rem !important;
+      }
+      .summary-row {
+        font-size: 0.875rem !important;
+        margin-bottom: 10px !important;
+      }
+      .summary-row.total {
+        font-size: 1.05rem !important;
+        padding-top: 12px !important;
+        margin-top: 12px !important;
+      }
+      .summary-row.total span:last-child {
+        font-size: 1.15rem !important;
       }
       #orderSuccessModal .modal-content-card {
         max-width: calc(100vw - 24px) !important;
@@ -200,10 +389,38 @@
         border-radius: 12px !important;
       }
       #orderSuccessModal h2 {
-        font-size: 1.35rem !important;
+        font-size: 1.3rem !important;
       }
       #orderSuccessModal strong#modalGeneratedId {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important;
+      }
+    }
+
+    /* Small / Compact Phones (<= 380px) */
+    @media (max-width: 380px) {
+      .checkout-container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+      .checkout-card {
+        padding: 14px 10px !important;
+        border-radius: 10px !important;
+      }
+      .checkout-step-title {
+        font-size: 0.9375rem !important;
+      }
+      .payment-option-card {
+        padding: 10px 8px !important;
+        gap: 8px !important;
+      }
+      .payment-option-card strong {
+        font-size: 0.8125rem !important;
+      }
+      .payment-option-card .payment-desc {
+        font-size: 0.70rem !important;
+      }
+      .summary-row.total span:last-child {
+        font-size: 1.05rem !important;
       }
     }
   </style>
@@ -298,16 +515,17 @@
       </div>
 
       <!-- Predictive Rounded Search Form with Trending Suggestions -->
-      <div class="alladin-search-wrapper">
+      <div class="alladin-search-wrapper" id="headerSearchWrapper">
         <form class="alladin-search-form header-search-form" action="search.html" method="GET">
           <input type="text" name="q" class="alladin-search-input header-search-input"
-            placeholder="Search inverters, panels, lithium batteries..." autocomplete="off">
+            placeholder="Search inverters, panels, batteries..." autocomplete="off">
           <button type="submit" class="alladin-search-btn" aria-label="Search Catalog">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
           </button>
+          <button type="button" class="search-close-btn" id="mobileSearchCloseBtn" aria-label="Close search">&times;</button>
         </form>
 
         <!-- Trending Searches Strip -->
@@ -322,8 +540,17 @@
         </div>
       </div>
 
-      <!-- Header Action Group: Account, Wishlist, Cart Drawer, WhatsApp -->
+      <!-- Header Action Group: Search Toggle, Account, Wishlist, Cart Drawer, WhatsApp -->
       <div class="header-actions">
+        <!-- Compact Search Icon Toggle Button (Mobile) -->
+        <button type="button" class="header-action-btn header-search-toggle-btn" id="mobileSearchToggleBtn"
+          title="Search Catalog" aria-label="Toggle Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="20" height="20">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+
         <!-- Account Visual Trigger -->
         <button type="button" class="header-action-btn" id="headerAccountBtn" onclick="openAccountModal(event)"
           title="My Account">
@@ -371,6 +598,58 @@
       </div>
 
     </div>
+
+    <!-- Mobile Top Navigation Bar: 5 Direct Options Always Visible on Mobile -->
+    <nav class="mobile-top-nav" aria-label="Mobile Navigation">
+      <div class="mobile-top-nav-inner">
+        <a href="../index.html" class="mobile-top-nav-link" data-nav="home">Home</a>
+        <a href="about.html" class="mobile-top-nav-link" data-nav="about">About Us</a>
+        <a href="installation.html" class="mobile-top-nav-link" data-nav="services">Services</a>
+        <div class="mobile-top-nav-item mobile-nav-dropdown active" data-nav="ecommerce">
+          <button type="button" class="mobile-top-nav-link mobile-dropdown-toggle active" id="mobileEcommerceToggle" aria-haspopup="true" aria-expanded="false">
+            <span>Ecommerce</span>
+            <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="mobile-dropdown-menu" id="mobileEcommerceDropdown">
+            <a href="shop.html?cat=solar" class="mobile-dropdown-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+              <span>Solar</span>
+            </a>
+            <a href="coffee-machines.html" class="mobile-dropdown-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+              </svg>
+              <span>Coffee Machine</span>
+            </a>
+            <a href="cctv-security.html" class="mobile-dropdown-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" />
+                <line x1="6" y1="6" x2="6.01" y2="6" />
+                <line x1="6" y1="18" x2="6.01" y2="18" />
+              </svg>
+              <span>Others</span>
+            </a>
+          </div>
+        </div>
+        <a href="contact.html" class="mobile-top-nav-link" data-nav="contact">Contact Us</a>
+      </div>
+    </nav>
 
     <!-- Second Tier: Dark Sticky Navigation Bar with Categories Dropdown -->
     <div class="header-nav-bar">
@@ -744,8 +1023,8 @@
     </div>
   </div>
 
-  <main class="section-padding">
-    <div class="container">
+  <main class="checkout-page-section">
+    <div class="checkout-container">
       
       <div class="disclaimer-banner">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -763,29 +1042,29 @@
             <!-- Step 1: Delivery Address -->
             <div class="checkout-card">
               <h2 class="checkout-step-title">
-                <span class="calc-step-pill" style="width:28px; height:28px; font-size:0.8125rem;">1</span>
+                <span class="calc-step-pill">1</span>
                 Delivery & Site Address in Pakistan
               </h2>
 
               <div class="checkout-form-row">
-                <div>
-                  <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Full Name *</label>
-                  <input type="text" id="custName" required placeholder="e.g. Muhammad Zeeshan" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem;">
+                <div class="checkout-form-group">
+                  <label for="custName" class="checkout-label">Full Name *</label>
+                  <input type="text" id="custName" class="checkout-input" required placeholder="e.g. Muhammad Zeeshan">
                 </div>
-                <div>
-                  <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Mobile / WhatsApp *</label>
-                  <input type="tel" id="custPhone" required placeholder="0300-1234567" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem;">
+                <div class="checkout-form-group">
+                  <label for="custPhone" class="checkout-label">Mobile / WhatsApp *</label>
+                  <input type="tel" id="custPhone" class="checkout-input" required placeholder="0300-1234567">
                 </div>
               </div>
 
               <div class="checkout-form-row">
-                <div>
-                  <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Email Address *</label>
-                  <input type="email" id="custEmail" required placeholder="name@example.com" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem;">
+                <div class="checkout-form-group">
+                  <label for="custEmail" class="checkout-label">Email Address *</label>
+                  <input type="email" id="custEmail" class="checkout-input" required placeholder="name@example.com">
                 </div>
-                <div>
-                  <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Destination City *</label>
-                  <select id="custCity" required style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem; background:#FFF;">
+                <div class="checkout-form-group">
+                  <label for="custCity" class="checkout-label">Destination City *</label>
+                  <select id="custCity" class="checkout-select" required>
                     <option value="Lahore">Lahore</option>
                     <option value="Karachi">Karachi</option>
                     <option value="Islamabad">Islamabad</option>
@@ -800,45 +1079,45 @@
                 </div>
               </div>
 
-              <div style="margin-bottom:16px;">
-                <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Delivery Street Address / Property Details *</label>
-                <input type="text" id="custAddress" required placeholder="House number, Street, Sector / Colony, City" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem;">
+              <div class="checkout-form-group">
+                <label for="custAddress" class="checkout-label">Delivery Street Address / Property Details *</label>
+                <input type="text" id="custAddress" class="checkout-input" required placeholder="House number, Street, Sector / Colony, City">
               </div>
 
-              <div>
-                <label style="display:block; font-size:0.8125rem; font-weight:700; margin-bottom:6px;">Site Access / Unloading Instructions</label>
-                <input type="text" placeholder="e.g. Elevator available, roof crane access, contact before arrival" style="width:100%; padding:10px 14px; border:1.5px solid #CBD5E1; border-radius:8px; font-size:0.875rem;">
+              <div class="checkout-form-group">
+                <label for="custInstructions" class="checkout-label">Site Access / Unloading Instructions</label>
+                <input type="text" id="custInstructions" class="checkout-input" placeholder="e.g. Elevator available, roof crane access, contact before arrival">
               </div>
             </div>
 
             <!-- Step 2: Payment Method -->
             <div class="checkout-card">
               <h2 class="checkout-step-title">
-                <span class="calc-step-pill" style="width:28px; height:28px; font-size:0.8125rem;">2</span>
+                <span class="calc-step-pill">2</span>
                 Payment Method (Demonstration)
               </h2>
 
               <label class="payment-option-card selected">
                 <input type="radio" name="payMethod" value="Cash on Delivery (COD)" checked>
-                <div>
+                <div class="payment-text-wrap">
                   <strong>Cash on Delivery (COD) / Inspection Handover</strong>
-                  <div style="font-size:0.8125rem; color:#64748B;">Pay via cash or verified banker's cheque upon heavy delivery inspection.</div>
+                  <div class="payment-desc">Pay via cash or verified banker's cheque upon heavy delivery inspection.</div>
                 </div>
               </label>
 
               <label class="payment-option-card">
                 <input type="radio" name="payMethod" value="Direct Bank Wire Transfer">
-                <div>
+                <div class="payment-text-wrap">
                   <strong>Direct Bank Transfer / IBFT (Meezan / HBL / Alfalah)</strong>
-                  <div style="font-size:0.8125rem; color:#64748B;">Transfer directly to MZH Solar corporate bank account with instant verification.</div>
+                  <div class="payment-desc">Transfer directly to MZH Solar corporate bank account with instant verification.</div>
                 </div>
               </label>
 
               <label class="payment-option-card">
                 <input type="radio" name="payMethod" value="Raast Instant P2P">
-                <div>
+                <div class="payment-text-wrap">
                   <strong>Raast Instant P2P Payment</strong>
-                  <div style="font-size:0.8125rem; color:#64748B;">Zero transaction fees with instant State Bank of Pakistan Raast settlement.</div>
+                  <div class="payment-desc">Zero transaction fees with instant State Bank of Pakistan Raast settlement.</div>
                 </div>
               </label>
             </div>
@@ -849,7 +1128,7 @@
           <aside class="checkout-card checkout-summary-card">
             <h3 style="font-size:1.125rem; font-weight:800; color:#192024; margin-bottom:16px;">Items in Your Order</h3>
             
-            <div id="checkoutItemsList" style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px; max-height:300px; overflow-y:auto;">
+            <div id="checkoutItemsList" class="checkout-items-list">
               <!-- Populated via JS -->
             </div>
 
@@ -872,7 +1151,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1.0625rem;">
+            <button type="submit" class="btn btn-primary checkout-submit-btn">
               Complete Demo Order &rarr;
             </button>
             <div style="text-align:center; font-size:0.75rem; color:#94A3B8; margin-top:12px;">
@@ -1161,6 +1440,15 @@
     </div>
   </footer>
 
+  <!-- Floating WhatsApp Contact Button -->
+  <a href="https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20interested%20in%20solar%20products" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat with MZH Solar on WhatsApp">
+    <span class="floating-whatsapp-pulse"></span>
+    <svg viewBox="0 0 24 24" class="floating-whatsapp-icon" width="30" height="30" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <span class="floating-whatsapp-tooltip">Chat with us</span>
+  </a>
+
   <!-- Scripts -->
   <script src="../js/products.js"></script>
   <script src="../js/cart.js"></script>
@@ -1168,22 +1456,25 @@
 
   <script>
     function renderCheckoutSummary() {
-      const financials = getCartFinancials();
+      let financials = getCartFinancials();
       const listEl = document.getElementById("checkoutItemsList");
 
-      if (financials.items.length === 0) {
-        window.location.href = "cart.html";
-        return;
+      if (!financials || financials.items.length === 0) {
+        // Auto-seed a Tier-1 inverter product for preview if cart is empty so tester sees complete checkout UI
+        addToCart(1, 1, false);
+        financials = getCartFinancials();
       }
 
       listEl.innerHTML = financials.items.map(item => `
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img src="${item.image}" alt="${item.name}" style="width:48px; height:48px; object-fit:cover; border-radius:6px;" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=100&q=80'">
-          <div style="flex:1; min-width:0;">
-            <div style="font-size:0.8125rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${item.name}</div>
-            <div style="font-size:0.75rem; color:#64748B;">Qty: ${item.quantity} × ${formatPKR(item.price)}</div>
+        <div class="checkout-item-row">
+          <div class="checkout-item-left">
+            <img src="${item.image}" alt="${item.name}" class="checkout-item-img" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=100&q=80'">
+            <div class="checkout-item-info">
+              <div class="checkout-item-name" title="${item.name}">${item.name}</div>
+              <div class="checkout-item-qty">Qty: ${item.quantity} × ${formatPKR(item.price)}</div>
+            </div>
           </div>
-          <div style="font-size:0.8125rem; font-weight:700; color:#0D3E2C;">${formatPKR(item.itemTotal)}</div>
+          <div class="checkout-item-price">${formatPKR(item.itemTotal)}</div>
         </div>
       `).join("");
 

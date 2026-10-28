@@ -8,6 +8,9 @@ if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     initStickyHeader();
     initMobileNav();
+    initCompactSearchToggle();
+    initEcommerceDropdowns();
+    initFloatingWhatsApp();
     initCategoriesDropdown();
     initSearchAutocomplete();
     initQuickViewModal();
@@ -78,7 +81,123 @@ function initMobileNav() {
   });
 }
 
-// --- 2b. All Categories Dropdown & Dynamic Consistency Safeguard ---
+// --- 2b. Ecommerce Dropdowns (Mobile & Desktop) ---
+function initEcommerceDropdowns() {
+  // Mobile Dropdown Toggle
+  const mobileToggles = document.querySelectorAll("#mobileEcommerceToggle, .mobile-dropdown-toggle");
+  mobileToggles.forEach(toggle => {
+    const parentDropdown = toggle.closest(".mobile-nav-dropdown");
+    if (!parentDropdown) return;
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const isOpen = parentDropdown.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
+
+  // Close mobile dropdown when tapping outside
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".mobile-nav-dropdown.open").forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+        const toggle = dropdown.querySelector(".mobile-dropdown-toggle");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".mobile-nav-dropdown.open").forEach(dropdown => {
+        dropdown.classList.remove("open");
+        const toggle = dropdown.querySelector(".mobile-dropdown-toggle");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+}
+
+// --- 2c. Compact Search Toggle (Mobile) ---
+function initCompactSearchToggle() {
+  const toggleBtn = document.getElementById("mobileSearchToggleBtn");
+  const searchWrapper = document.getElementById("headerSearchWrapper") || document.querySelector(".alladin-search-wrapper");
+  const closeBtn = document.getElementById("mobileSearchCloseBtn") || (searchWrapper && searchWrapper.querySelector(".search-close-btn"));
+  if (!searchWrapper) return;
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isExpanded = searchWrapper.classList.toggle("mobile-expanded");
+      toggleBtn.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+      toggleBtn.classList.toggle("active", isExpanded);
+      if (isExpanded) {
+        const input = searchWrapper.querySelector(".alladin-search-input, .header-search-input");
+        if (input) {
+          setTimeout(() => input.focus(), 60);
+        }
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      searchWrapper.classList.remove("mobile-expanded");
+      if (toggleBtn) {
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.classList.remove("active");
+      }
+    });
+  }
+
+  // Close search when clicking outside
+  document.addEventListener("click", (e) => {
+    if (searchWrapper.classList.contains("mobile-expanded")) {
+      if (!searchWrapper.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
+        searchWrapper.classList.remove("mobile-expanded");
+        if (toggleBtn) {
+          toggleBtn.setAttribute("aria-expanded", "false");
+          toggleBtn.classList.remove("active");
+        }
+      }
+    }
+  });
+
+  // Close search on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchWrapper.classList.contains("mobile-expanded")) {
+      searchWrapper.classList.remove("mobile-expanded");
+      if (toggleBtn) {
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.classList.remove("active");
+      }
+    }
+  });
+}
+
+// --- 2c. Floating WhatsApp Button Guarantee ---
+function initFloatingWhatsApp() {
+  if (document.querySelector(".floating-whatsapp-btn")) return;
+  const wa = document.createElement("a");
+  wa.href = "https://wa.me/923001234567?text=Hello%20MZH%20Solar,%20I%20am%20interested%20in%20solar%20products";
+  wa.target = "_blank";
+  wa.rel = "noopener noreferrer";
+  wa.className = "floating-whatsapp-btn";
+  wa.title = "Chat on WhatsApp";
+  wa.setAttribute("aria-label", "Chat with MZH Solar on WhatsApp");
+  wa.innerHTML = `
+    <span class="floating-whatsapp-pulse"></span>
+    <svg viewBox="0 0 24 24" class="floating-whatsapp-icon" width="30" height="30" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <span class="floating-whatsapp-tooltip">Chat with us</span>
+  `;
+  document.body.appendChild(wa);
+}
+
+// --- 2d. All Categories Dropdown & Dynamic Consistency Safeguard ---
 function initCategoriesDropdown() {
   const dropdown = document.querySelector(".categories-dropdown");
   const menuBtn = document.querySelector(".categories-menu-btn");
@@ -686,7 +805,7 @@ function openAccountModal(event) {
     if (ev.preventDefault) ev.preventDefault();
   }
 
-  // Check if popover already exists
+  // Check if popover already exists - toggle behavior
   const existingPopover = document.querySelector(".header-account-popover");
   if (existingPopover) {
     existingPopover.remove();
@@ -695,17 +814,13 @@ function openAccountModal(event) {
 
   const user = getStoredAuthUser();
   const triggerBtn = (ev && (ev.currentTarget || (ev.target && ev.target.closest(".header-action-btn")))) || document.querySelector(".header-action-btn[onclick*='openAccountModal']");
-  const parentContainer = triggerBtn ? triggerBtn.closest(".header-actions") : document.querySelector(".header-actions") || document.body;
-
-  if (!parentContainer) {
-    window.location.href = user ? getAuthPagePath("account.html") : getAuthPagePath("login.html");
-    return;
-  }
-
-  parentContainer.style.position = "relative";
+  const isMobile = window.innerWidth <= 992;
 
   const popover = document.createElement("div");
   popover.className = "header-account-popover";
+  if (!user || !user.name) {
+    popover.classList.add("is-guest");
+  }
 
   if (user && user.name) {
     const initials = user.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
@@ -776,18 +891,101 @@ function openAccountModal(event) {
     `;
   }
 
-  parentContainer.appendChild(popover);
+  if (isMobile) {
+    // Mobile positioning: position directly beneath the mobile navbar and center relative to account icon
+    const mobileNav = document.querySelector(".mobile-top-nav");
+    const header = (triggerBtn && triggerBtn.closest(".main-header")) || document.querySelector(".main-header");
+    let topPos = 115;
+    if (mobileNav && window.getComputedStyle(mobileNav).display !== "none") {
+      const navRect = mobileNav.getBoundingClientRect();
+      topPos = Math.round(navRect.bottom + 4);
+    } else if (header) {
+      const headerRect = header.getBoundingClientRect();
+      topPos = Math.round(headerRect.bottom + 4);
+    } else if (triggerBtn) {
+      const btnRect = triggerBtn.getBoundingClientRect();
+      topPos = Math.round(btnRect.bottom + 8);
+    }
+
+    const viewportW = window.innerWidth;
+    const popoverWidth = Math.min(290, viewportW - 24);
+    let leftPos;
+    let caretPos = 145;
+
+    if (triggerBtn) {
+      const btnRect = triggerBtn.getBoundingClientRect();
+      const btnCenter = btnRect.left + (btnRect.width / 2);
+      leftPos = Math.round(btnCenter - (popoverWidth / 2));
+      // Clamp within viewport margins
+      if (leftPos < 12) leftPos = 12;
+      if (leftPos + popoverWidth > viewportW - 12) {
+        leftPos = viewportW - popoverWidth - 12;
+      }
+      caretPos = Math.round(btnCenter - leftPos);
+      if (caretPos < 16) caretPos = 16;
+      if (caretPos > popoverWidth - 16) caretPos = popoverWidth - 16;
+    } else {
+      leftPos = Math.round(viewportW - popoverWidth - 12);
+    }
+
+    popover.style.setProperty("--account-popover-top", topPos + "px");
+    popover.style.setProperty("--account-popover-left", leftPos + "px");
+    popover.style.setProperty("--account-popover-width", popoverWidth + "px");
+    popover.style.setProperty("--caret-left", caretPos + "px");
+
+    const maxH = Math.min(440, window.innerHeight - topPos - 16);
+    popover.style.maxHeight = maxH + "px";
+
+    document.body.appendChild(popover);
+  } else {
+    // Desktop: attach to .header-actions preserving exact desktop layout and styling
+    const parentContainer = triggerBtn ? triggerBtn.closest(".header-actions") : document.querySelector(".header-actions") || document.body;
+    if (!parentContainer) {
+      window.location.href = user ? getAuthPagePath("account.html") : getAuthPagePath("login.html");
+      return;
+    }
+    parentContainer.style.position = "relative";
+    parentContainer.appendChild(popover);
+  }
+
+  function closePopover() {
+    if (popover && popover.parentNode) {
+      popover.remove();
+    }
+    document.removeEventListener("click", onDocClick);
+    document.removeEventListener("keydown", onKeyDown);
+    window.removeEventListener("resize", onResize);
+  }
 
   function onDocClick(e) {
     if (!popover.contains(e.target) && (!triggerBtn || !triggerBtn.contains(e.target))) {
-      popover.remove();
-      document.removeEventListener("click", onDocClick);
+      closePopover();
     }
   }
 
+  function onKeyDown(e) {
+    if (e.key === "Escape" || e.keyCode === 27) {
+      closePopover();
+    }
+  }
+
+  function onResize() {
+    closePopover();
+  }
+
+  // Close when any menu option or button inside the popover is selected
+  popover.addEventListener("click", (e) => {
+    const clickable = e.target.closest("a, button, .popover-menu-item");
+    if (clickable) {
+      setTimeout(closePopover, 80);
+    }
+  });
+
   setTimeout(() => {
     document.addEventListener("click", onDocClick);
-  }, 10);
+    document.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize, { passive: true });
+  }, 20);
 }
 
 function logoutUser() {

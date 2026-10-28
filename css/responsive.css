@@ -82,26 +82,124 @@ img, svg, video {
     display: none;
   }
 
+  /* Display the 5-option mobile top nav on mobile screens */
+  .mobile-top-nav {
+    display: block !important;
+  }
+
   .mobile-nav-toggle {
     display: flex;
   }
 
-  .header-top-row {
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 12px 0;
+  .header-search-toggle-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 
+  .header-top-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Compact mobile search: collapsed until magnifying glass is clicked */
   .alladin-search-wrapper {
-    order: 3;
+    display: none;
+    order: 10;
     width: 100%;
     max-width: 100%;
-    margin-top: 4px;
+    margin-top: 8px;
+    padding: 2px 2px 6px 2px;
+    animation: mobileSearchSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .alladin-search-wrapper.mobile-expanded {
+    display: block !important;
+  }
+
+  .alladin-search-wrapper.mobile-expanded .search-close-btn {
+    display: block;
+  }
+
+  @keyframes mobileSearchSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .brand-logo-img {
-    height: 46px;
+    height: 44px;
   }
+
+  /* Mobile Account Dropdown Popover (<= 992px) */
+  .header-account-popover {
+    position: fixed !important;
+    top: var(--account-popover-top, 115px) !important;
+    left: var(--account-popover-left, auto) !important;
+    right: var(--account-popover-right, 12px) !important;
+    width: var(--account-popover-width, min(290px, calc(100vw - 24px))) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: min(440px, calc(100vh - 130px)) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    z-index: 99999 !important;
+    border-radius: 12px !important;
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+    animation: mobilePopoverSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  @keyframes mobilePopoverSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Caret indicator pointing directly to account button */
+  .header-account-popover::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: var(--caret-left, 75%);
+    transform: translateX(-50%) rotate(45deg);
+    width: 11px;
+    height: 11px;
+    background: #092B1E;
+    border-top: 1px solid #CBD5E1;
+    border-left: 1px solid #CBD5E1;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .header-account-popover.is-guest::before {
+    background: #F8FAFC;
+    border-top: 1px solid #CBD5E1;
+    border-left: 1px solid #CBD5E1;
+  }
+
+  /* Compact touch scrollbar */
+  .header-account-popover::-webkit-scrollbar {
+    width: 4px;
+  }
+  .header-account-popover::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.35);
+    border-radius: 4px;
+  }
+
 
   /* Grids */
   .product-grid,
@@ -2075,12 +2173,36 @@ img, svg, video {
 @media (max-width: 480px) {
   /* Header: tighter actions */
   .header-actions {
-    gap: 6px !important;
+    gap: 5px !important;
   }
 
   .header-action-btn {
-    width: 40px !important;
-    height: 40px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  /* Mobile top nav on compact phones */
+  .mobile-top-nav-link,
+  .mobile-dropdown-toggle {
+    font-size: 0.74rem !important;
+    padding: 9px 2px !important;
+  }
+
+  .mobile-dropdown-menu {
+    min-width: 165px !important;
+  }
+
+  /* Floating WhatsApp button on compact phones */
+  .floating-whatsapp-btn {
+    bottom: 18px !important;
+    right: 18px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 26px !important;
+    height: 26px !important;
   }
 
   /* Sliders & Carousels (<= 480px) */
@@ -2218,8 +2340,30 @@ img, svg, video {
   }
 
   .header-action-btn {
-    width: 36px !important;
-    height: 36px !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .mobile-top-nav-link,
+  .mobile-dropdown-toggle {
+    font-size: 0.70rem !important;
+    padding: 8px 1px !important;
+  }
+
+  .mobile-dropdown-menu {
+    min-width: 155px !important;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 16px !important;
+    right: 14px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   .main-footer .container > div[style*="background:#0D3E2C"],
@@ -2271,9 +2415,17 @@ img, svg, video {
 @media (max-width: 768px) {
   /* Checkout */
   .checkout-card {
-    padding: 24px 20px !important;
+    padding: 20px 16px !important;
     border-radius: 14px !important;
     margin-bottom: 20px !important;
+  }
+
+  .checkout-form-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
   }
 
   /* Track Order */
