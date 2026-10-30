@@ -42,89 +42,62 @@ const footerStart = indexHtml.indexOf('<footer class="main-footer">');
 const footerEnd = indexHtml.indexOf('</footer>', footerStart) + 9;
 const footerCanonical = indexHtml.slice(footerStart, footerEnd);
 
-// Navigation active mapping
-const activeMap = {
-  'about.html': 'about.html',
-  'shop.html': 'shop.html',
-  'hot-deals.html': 'hot-deals.html',
-  'inverters.html': 'inverters.html',
-  'charge-controllers.html': 'charge-controllers.html',
-  'solar-panels.html': 'solar-panels.html',
-  'batteries.html': 'batteries.html',
-  'cctv-security.html': 'cctv-security.html',
-  'packages.html': 'packages.html',
-  'installation.html': 'installation.html',
-  'track-order.html': 'track-order.html',
-  'coffee-machines.html': 'coffee-machines.html'
-};
-
 function buildHeaderForPage(filename) {
   let header = headerCanonical;
   
   // Replace root logo path and link globally
   header = header.replace(/href="index\.html"/g, 'href="../index.html"');
   header = header.replace(/src="assets\/images\/mzh-solar-logo\.png"/g, 'src="../assets/images/mzh-solar-logo.png"');
-  
-  // Search action
-  header = header.replace(/action="pages\/search\.html"/g, 'action="search.html"');
-  
-  // Header action wishlist link
-  header = header.replace(/href="pages\/wishlist\.html"/g, 'href="wishlist.html"');
-  
-  // Replace categories dropdown links
   header = header.replace(/href="pages\/([^"]+)"/g, 'href="$1"');
-  
+
   // Navigation active state
   // First, remove active from Home
-  header = header.replace('<a href="../index.html" class="nav-link-dark active">Home</a>', '<a href="../index.html" class="nav-link-dark">Home</a>');
-  header = header.replace('class="mobile-top-nav-link active" data-nav="home"', 'class="mobile-top-nav-link" data-nav="home"');
-  
-  const targetActive = activeMap[filename];
-  if (targetActive) {
-    if (targetActive === 'hot-deals.html') {
-      header = header.replace(
-        '<a href="hot-deals.html" class="nav-link-dark">',
-        '<a href="hot-deals.html" class="nav-link-dark active">'
-      );
-    } else {
-      header = header.replace(
-        `href="${targetActive}" class="nav-link-dark"`,
-        `href="${targetActive}" class="nav-link-dark active"`
-      );
+  header = header.replace('<a href="../index.html" class="nav-link active">Home</a>', '<a href="../index.html" class="nav-link">Home</a>');
+
+  if (filename === 'about.html') {
+    header = header.replace('<a href="about.html" class="nav-link">About Us</a>', '<a href="about.html" class="nav-link active">About Us</a>');
+  } else if (filename === 'installation.html') {
+    header = header.replace('<a href="installation.html" class="nav-link">Services</a>', '<a href="installation.html" class="nav-link active">Services</a>');
+  } else if (['inverters.html', 'coffee-machines.html', 'cctv-security.html', 'shop.html', 'batteries.html', 'solar-panels.html'].includes(filename)) {
+    header = header.replace('class="nav-item nav-dropdown"', 'class="nav-item nav-dropdown active"');
+    header = header.replace('class="nav-link dropdown-toggle"', 'class="nav-link dropdown-toggle active"');
+    if (['inverters.html', 'batteries.html', 'solar-panels.html'].includes(filename)) {
+      header = header.replace('href="inverters.html" class="dropdown-menu-item"', 'href="inverters.html" class="dropdown-menu-item active"');
+    } else if (filename === 'coffee-machines.html') {
+      header = header.replace('href="coffee-machines.html" class="dropdown-menu-item"', 'href="coffee-machines.html" class="dropdown-menu-item active"');
+    } else if (filename === 'cctv-security.html') {
+      header = header.replace('href="cctv-security.html" class="dropdown-menu-item"', 'href="cctv-security.html" class="dropdown-menu-item active"');
     }
   }
 
-  // Set active state on mobile top nav
-  if (filename === 'about.html') {
-    header = header.replace('class="mobile-top-nav-link" data-nav="about"', 'class="mobile-top-nav-link active" data-nav="about"');
-  } else if (filename === 'installation.html') {
-    header = header.replace('class="mobile-top-nav-link" data-nav="services"', 'class="mobile-top-nav-link active" data-nav="services"');
-  } else if (filename === 'contact.html') {
-    header = header.replace('class="mobile-top-nav-link" data-nav="contact"', 'class="mobile-top-nav-link active" data-nav="contact"');
-  } else {
-    // Ecommerce active
-    header = header.replace('class="mobile-top-nav-item mobile-nav-dropdown" data-nav="ecommerce"', 'class="mobile-top-nav-item mobile-nav-dropdown active" data-nav="ecommerce"');
-    header = header.replace('class="mobile-top-nav-link mobile-dropdown-toggle"', 'class="mobile-top-nav-link mobile-dropdown-toggle active"');
-    
-    // Highlight specific dropdown item in mobile dropdown
-    if (filename === 'coffee-machines.html') {
-      header = header.replace('href="coffee-machines.html" class="mobile-dropdown-item"', 'href="coffee-machines.html" class="mobile-dropdown-item active"');
-    } else if (filename === 'cctv-security.html') {
-      header = header.replace('href="cctv-security.html" class="mobile-dropdown-item"', 'href="cctv-security.html" class="mobile-dropdown-item active"');
-    } else if (filename === 'shop.html') {
-      header = header.replace('href="shop.html?cat=solar" class="mobile-dropdown-item"', 'href="shop.html?cat=solar" class="mobile-dropdown-item active"');
-    }
-  }
-  
   return header;
 }
 
-function buildDrawerForPage() {
+function buildDrawerForPage(filename) {
   let drawer = drawerCanonical;
   drawer = drawer.replace(/src="assets\/images\/mzh-solar-logo\.png"/g, 'src="../assets/images/mzh-solar-logo.png"');
-  drawer = drawer.replace(/action="pages\/search\.html"/g, 'action="search.html"');
   drawer = drawer.replace(/href="index\.html"/g, 'href="../index.html"');
   drawer = drawer.replace(/href="pages\/([^"]+)"/g, 'href="$1"');
+
+  // Remove active from Home in mobile drawer
+  drawer = drawer.replace('<a href="../index.html" class="mobile-nav-link active">Home</a>', '<a href="../index.html" class="mobile-nav-link">Home</a>');
+
+  if (filename === 'about.html') {
+    drawer = drawer.replace('<a href="about.html" class="mobile-nav-link">About Us</a>', '<a href="about.html" class="mobile-nav-link active">About Us</a>');
+  } else if (filename === 'installation.html') {
+    drawer = drawer.replace('<a href="installation.html" class="mobile-nav-link">Services</a>', '<a href="installation.html" class="mobile-nav-link active">Services</a>');
+  } else if (['inverters.html', 'coffee-machines.html', 'cctv-security.html', 'shop.html', 'batteries.html', 'solar-panels.html'].includes(filename)) {
+    drawer = drawer.replace('class="mobile-nav-item mobile-nav-has-sub"', 'class="mobile-nav-item mobile-nav-has-sub open active"');
+    drawer = drawer.replace('class="mobile-nav-sub-toggle" aria-expanded="false"', 'class="mobile-nav-sub-toggle active" aria-expanded="true"');
+    if (['inverters.html', 'batteries.html', 'solar-panels.html'].includes(filename)) {
+      drawer = drawer.replace('href="inverters.html"', 'href="inverters.html" class="active"');
+    } else if (filename === 'coffee-machines.html') {
+      drawer = drawer.replace('href="coffee-machines.html"', 'href="coffee-machines.html" class="active"');
+    } else if (filename === 'cctv-security.html') {
+      drawer = drawer.replace('href="cctv-security.html"', 'href="cctv-security.html" class="active"');
+    }
+  }
+
   return drawer;
 }
 
@@ -213,7 +186,7 @@ files.forEach(f => {
   
   // 7. Assemble components for this page
   const pageHeader = buildHeaderForPage(f);
-  const pageDrawer = buildDrawerForPage();
+  const pageDrawer = buildDrawerForPage(f);
   const pageCartDrawer = buildCartDrawerForPage();
   const pageFooter = buildFooterForPage();
   

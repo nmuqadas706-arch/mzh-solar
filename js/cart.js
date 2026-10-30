@@ -9,11 +9,58 @@ const STORAGE_KEYS = {
   PROMO: "mzh_active_promo"
 };
 
-// Initialize Cart State from LocalStorage
+// Universal Image Path Resolver (Context Aware for root and subpages)
+function resolveProductImagePath(imgPath) {
+  if (!imgPath || typeof imgPath !== "string") {
+    return "";
+  }
+  const trimmed = imgPath.trim();
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("data:") || trimmed.startsWith("//")) {
+    return trimmed;
+  }
+  const clean = trimmed.replace(/^(\.\.\/)+/, "").replace(/^(\.\/)+/, "").replace(/^\//, "");
+  const isPagesDir = typeof window !== "undefined" && window.location && (
+    window.location.pathname.includes("/pages/") ||
+    window.location.pathname.includes("\\pages\\") ||
+    window.location.href.includes("/pages/")
+  );
+  return isPagesDir ? `../${clean}` : clean;
+}
+
+if (typeof window !== "undefined") {
+  window.resolveProductImagePath = resolveProductImagePath;
+}
+
+// Initialize Cart State from LocalStorage with Automatic Data Repair
 function getCartItems() {
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.CART);
-    return raw ? JSON.parse(raw) : [];
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(parsed)) return [];
+
+    let needsSave = false;
+    const migrated = parsed.map(item => {
+      if (!item || !item.id) return null;
+      const product = typeof getProductById === "function" ? getProductById(item.id) : null;
+      const updated = { ...item };
+      if (product) {
+        if (!updated.name || updated.name !== product.name) { updated.name = product.name; needsSave = true; }
+        if (typeof updated.price !== "number" || updated.price !== product.price) { updated.price = product.price; needsSave = true; }
+        if (!updated.image || updated.image !== product.image) { updated.image = product.image; needsSave = true; }
+        if (product.brand && !updated.brand) { updated.brand = product.brand; needsSave = true; }
+        if (product.sku && !updated.sku) { updated.sku = product.sku; needsSave = true; }
+      }
+      if (!updated.quantity || updated.quantity < 1) updated.quantity = 1;
+      return updated;
+    }).filter(Boolean);
+
+    if (needsSave) {
+      try {
+        localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(migrated));
+      } catch (e) {}
+    }
+
+    return migrated;
   } catch (e) {
     console.error("Error reading cart from localStorage", e);
     return [];
@@ -32,22 +79,33 @@ function saveCartItems(items) {
   }
 }
 
-// Add product to cart
+// Add product to cart with full product record
 function addToCart(productId, quantity = 1, showNotification = true) {
-  const product = getProductById(productId);
+  const product = typeof getProductById === "function" ? getProductById(productId) : null;
   if (!product) {
     showToast("Error", "Product not found.", "error");
     return;
   }
 
   const items = getCartItems();
-  const existing = items.find(item => item.id === productId);
+  const idStr = String(product.id);
+  const existing = items.find(item => String(item.id) === idStr);
 
   if (existing) {
     existing.quantity += quantity;
+    existing.image = product.image;
+    existing.name = product.name;
+    existing.price = product.price;
+    if (product.brand) existing.brand = product.brand;
+    if (product.sku) existing.sku = product.sku;
   } else {
     items.push({
-      id: productId,
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      brand: product.brand || "",
+      sku: product.sku || "",
       quantity: quantity
     });
   }
@@ -65,16 +123,18 @@ function addToCart(productId, quantity = 1, showNotification = true) {
 
 // Remove single product from cart
 function removeFromCart(productId) {
+  const idStr = String(productId);
   const items = getCartItems();
-  const filtered = items.filter(item => item.id !== productId);
+  const filtered = items.filter(item => String(item.id) !== idStr);
   saveCartItems(filtered);
   showToast("Item Removed", "Product removed from your shopping cart.", "info");
 }
 
 // Update quantity
 function updateCartQuantity(productId, delta) {
+  const idStr = String(productId);
   const items = getCartItems();
-  const item = items.find(i => i.id === productId);
+  const item = items.find(i => String(i.id) === idStr);
   if (!item) return;
 
   item.quantity += delta;
@@ -86,8 +146,9 @@ function updateCartQuantity(productId, delta) {
 }
 
 function setCartQuantity(productId, qty) {
+  const idStr = String(productId);
   const items = getCartItems();
-  const item = items.find(i => i.id === productId);
+  const item = items.find(i => String(i.id) === idStr);
   if (!item) return;
 
   const validQty = parseInt(qty, 10);
@@ -104,20 +165,34 @@ function clearCart() {
   saveCartItems([]);
 }
 
-// Calculate financial totals
+// Calculate financial totals and hydrate with context-accurate image paths
 function getCartFinancials() {
   const items = getCartItems();
   let subtotal = 0;
   let totalItemsCount = 0;
 
   const hydratedItems = items.map(cartItem => {
-    const product = getProductById(cartItem.id);
-    if (!product) return null;
-    const itemSubtotal = product.price * cartItem.quantity;
+    const product = typeof getProductById === "function" ? getProductById(cartItem.id) : null;
+    const name = cartItem.name || (product && product.name) || "Product";
+    const price = typeof cartItem.price === "number" ? cartItem.price : ((product && product.price) || 0);
+    const rawImage = (product && product.image) || cartItem.image || "";
+    const brand = cartItem.brand || (product && product.brand) || "";
+    const sku = cartItem.sku || (product && product.sku) || "";
+    const itemSubtotal = price * cartItem.quantity;
+
     subtotal += itemSubtotal;
     totalItemsCount += cartItem.quantity;
+
     return {
-      ...product,
+      ...(product || {}),
+      ...cartItem,
+      id: cartItem.id,
+      name,
+      price,
+      brand,
+      sku,
+      rawImage,
+      image: resolveProductImagePath(rawImage),
       quantity: cartItem.quantity,
       itemTotal: itemSubtotal
     };
@@ -318,7 +393,7 @@ function renderCartDrawer() {
 
   container.innerHTML = financials.items.map(item => `
     <div class="cart-drawer-item" data-id="${item.id}">
-      <img src="${item.image}" alt="${item.name}" class="cart-drawer-img" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=200&q=80'">
+      <img src="${item.image}" alt="${item.name}" class="cart-drawer-img" loading="lazy" style="object-fit:contain; background:#FFFFFF;">
       <div class="cart-drawer-details">
         <h4 class="cart-drawer-title" title="${item.name}">${item.name}</h4>
         <div class="cart-drawer-price">${formatPKR(item.price)}</div>

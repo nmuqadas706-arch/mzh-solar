@@ -8,6 +8,7 @@ if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     initStickyHeader();
     initMobileNav();
+    initOnlineShopDropdown();
     initCompactSearchToggle();
     initEcommerceDropdowns();
     initFloatingWhatsApp();
@@ -25,6 +26,7 @@ if (typeof document !== "undefined") {
     initCategoryCarousel();
     initHotDealsCarousel();
     initTouchImageSwaps();
+    initLandscapeVideo();
   });
 }
 
@@ -63,11 +65,26 @@ function initMobileNav() {
     document.body.style.overflow = "";
   }
 
-  toggleBtn.addEventListener("click", openDrawer);
+  toggleBtn.addEventListener("click", () => {
+    if (drawer.classList.contains("active")) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   if (overlay) overlay.addEventListener("click", closeDrawer);
 
-  // Mobile submenu accordion toggle (Ecommerce)
+  // Close drawer after clicking any navigation link
+  const navLinks = drawer.querySelectorAll("a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      closeDrawer();
+    });
+  });
+
+  // Mobile submenu accordion toggle (Online Shop)
   const subToggles = drawer.querySelectorAll(".mobile-nav-sub-toggle");
   subToggles.forEach(btn => {
     btn.addEventListener("click", (e) => {
@@ -79,6 +96,37 @@ function initMobileNav() {
         btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       }
     });
+  });
+}
+
+// --- 2b. Online Shop Dropdown (Desktop Hover & Click) ---
+function initOnlineShopDropdown() {
+  const dropdown = document.querySelector(".nav-item.nav-dropdown");
+  if (!dropdown) return;
+  const toggleBtn = dropdown.querySelector(".dropdown-toggle");
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = dropdown.classList.toggle("open");
+    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("open");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Close dropdown on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      dropdown.classList.remove("open");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    }
   });
 }
 
@@ -324,7 +372,7 @@ function initSearchAutocomplete() {
 
       dropdown.innerHTML = matches.map(item => `
         <a href="javascript:void(0)" class="search-suggestion-item" onclick="openQuickView('${item.id}')">
-          <img src="${item.image}" alt="${item.name}" class="search-suggestion-thumb" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=100&q=80'">
+          <img src="${resolveProductImagePath(item.image)}" alt="${item.name}" class="search-suggestion-thumb" loading="lazy" style="object-fit:contain; background:#FFFFFF;">
           <div class="search-suggestion-info">
             <div class="search-suggestion-name">${item.name}</div>
             <div class="search-suggestion-meta">${formatPKR(item.price)} • ${item.brand}</div>
@@ -492,12 +540,22 @@ function initDynamicSearchHeader() {
 }
 
 // --- 4. Product Card Template Generator ---
+function resolveProductImagePath(imgPath) {
+  if (!imgPath) return '';
+  if (imgPath.startsWith('http://') || imgPath.startsWith('https://') || imgPath.startsWith('data:')) return imgPath;
+  const isPagesDir = window.location.pathname.includes("/pages/") || window.location.pathname.includes("\\pages\\");
+  const clean = imgPath.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
+  return isPagesDir ? `../${clean}` : clean;
+}
+
 function renderProductCard(product) {
   const isWish = isInWishlist(product.id);
   const heartFill = isWish ? "#DC2626" : "none";
   const heartStroke = isWish ? "#DC2626" : "currentColor";
-  const hasSecondary = Boolean(product.secondaryImage);
+  const hasSecondary = Boolean(product.secondaryImage && product.secondaryImage !== product.image);
   const detailsUrl = `${getAuthPagePath('product-details.html')}?id=${encodeURIComponent(product.id)}`;
+  const primaryImg = resolveProductImagePath(product.image);
+  const secondaryImg = resolveProductImagePath(product.secondaryImage);
 
   return `
     <div class="product-card" data-id="${product.id}" data-category="${product.category}">
@@ -515,23 +573,26 @@ function renderProductCard(product) {
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
         </button>
-        <img src="${product.image}" alt="${product.name}" class="product-card-img product-card-img-primary" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80'">
-        ${hasSecondary ? `<img src="${product.secondaryImage}" alt="${product.name} (Alternate View)" class="product-card-img product-card-img-secondary" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <img src="${primaryImg}" alt="${product.name}" class="product-card-img product-card-img-primary" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80'">
+        ${hasSecondary ? `<img src="${secondaryImg}" alt="${product.name} (Alternate View)" class="product-card-img product-card-img-secondary" loading="lazy" onerror="this.style.display='none'">` : ''}
       </div>
       <div class="product-card-body">
         <span class="product-brand">${product.brand}</span>
         <h3 class="product-title" title="${product.name}">
           <a href="${detailsUrl}" style="color:inherit; text-decoration:none;">${product.name}</a>
         </h3>
-        <div class="product-specs-pill" title="${product.shortSpec}">${product.shortSpec}</div>
+        <div class="product-specs-pill" title="${product.shortSpec || ''}">${product.shortSpec || ''}</div>
         <div class="product-stock-status">
           <span class="stock-dot"></span>
           <span>In Stock • Ready to Dispatch</span>
         </div>
         <div class="product-price-row">
-          <span class="product-current-price">${formatPKR(product.price)}</span>
-          ${product.originalPrice ? `<span class="product-original-price">${formatPKR(product.originalPrice)}</span>` : ''}
-          <span class="demo-price-tag">(Demo Price)</span>
+          ${product.price > 0 ? `
+            <span class="product-current-price">${formatPKR(product.price)}</span>
+            ${product.originalPrice && product.originalPrice > product.price ? `<span class="product-original-price">${formatPKR(product.originalPrice)}</span>` : ''}
+          ` : `
+            <span class="product-current-price" style="font-size:0.95rem; color:#0D3E2C; font-weight:700;">Price on Request</span>
+          `}
         </div>
         <div class="product-action-group">
           <button type="button" class="btn-add-to-cart" onclick="addToCart('${product.id}', 1)">
@@ -597,27 +658,38 @@ function openQuickView(productId) {
     `).join("");
   }
 
-  const thumbnailsHtml = product.secondaryImage ? `
-    <div class="quickview-thumbs-row" style="display:flex; gap:8px; margin-top:10px;">
-      <button type="button" class="qv-thumb-btn active" onclick="switchQvImg('${product.image}', this)" style="border:2px solid var(--color-primary); border-radius:6px; overflow:hidden; width:52px; height:52px; padding:0; background:none; cursor:pointer;" title="Primary Angle">
-        <img src="${product.image}" alt="Primary View" style="width:100%; height:100%; object-fit:contain; background:#F8FAFC;">
-      </button>
-      <button type="button" class="qv-thumb-btn" onclick="switchQvImg('${product.secondaryImage}', this)" style="border:1.5px solid #CBD5E1; border-radius:6px; overflow:hidden; width:52px; height:52px; padding:0; background:none; cursor:pointer;" title="Alternate Angle">
-        <img src="${product.secondaryImage}" alt="Alternate View" style="width:100%; height:100%; object-fit:contain; background:#F8FAFC;">
-      </button>
-    </div>
-  ` : '';
+  const allImages = (product.images && product.images.length > 0)
+    ? product.images
+    : [product.image, product.secondaryImage].filter(Boolean);
+
+  const primaryImg = resolveProductImagePath(product.image);
+
+  let thumbnailsHtml = '';
+  if (allImages.length > 1) {
+    thumbnailsHtml = `
+      <div class="quickview-thumbs-row" style="display:flex; gap:8px; margin-top:10px; overflow-x:auto; padding-bottom:4px;">
+        ${allImages.map((imgSrc, i) => {
+          const resolved = resolveProductImagePath(imgSrc);
+          return `
+            <button type="button" class="qv-thumb-btn ${i === 0 ? 'active' : ''}" onclick="switchQvImg('${resolved}', this)" style="border:${i === 0 ? '2px solid var(--color-primary)' : '1.5px solid #CBD5E1'}; border-radius:6px; overflow:hidden; width:52px; height:52px; min-width:52px; padding:0; background:none; cursor:pointer;" title="View ${i + 1}">
+              <img src="${resolved}" alt="View ${i + 1}" style="width:100%; height:100%; object-fit:contain; background:#FFFFFF;">
+            </button>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
 
   const detailsUrl = `${getAuthPagePath('product-details.html')}?id=${encodeURIComponent(product.id)}`;
 
   content.innerHTML = `
     <div class="quickview-media-col">
-      <div class="quickview-stage-wrap">
-        <img id="qvMainImg" src="${product.image}" alt="${product.name}" class="quickview-img" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=700&q=80'">
+      <div class="quickview-stage-wrap" style="background:#FFFFFF; border-radius:10px; border:1px solid #E2E8F0; padding:8px;">
+        <img id="qvMainImg" src="${primaryImg}" alt="${product.name}" class="quickview-img" style="object-fit:contain;" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=700&q=80'">
       </div>
       ${thumbnailsHtml}
       <div class="quickview-guarantee-box" style="margin-top:14px; padding:10px 14px; background:#F8FAFC; border-radius:8px; font-size:0.78125rem; color:#64748B; border:1px solid #E2E8F0;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5A919" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; display:inline-block; margin-right:4px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><strong>Official MZH Quality Guaranteed</strong>: Tested for Pakistani voltage fluctuations & temperature extremes.
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5A919" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; display:inline-block; margin-right:4px;"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><strong>Official MZH Quality Guaranteed</strong>: Tested and verified commercial-grade equipment.
       </div>
     </div>
     <div class="quickview-info-col" style="display:flex; flex-direction:column;">
@@ -629,12 +701,16 @@ function openQuickView(productId) {
       </h2>
       
       <div class="quickview-price-row" style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
-        <span class="quickview-price-val" style="font-size:1.45rem; font-weight:800; color:#0D3E2C;">${formatPKR(product.price)}</span>
-        ${product.originalPrice ? `<span class="quickview-price-old" style="text-decoration:line-through; color:#94A3B8; font-size:0.95rem;">${formatPKR(product.originalPrice)}</span>` : ''}
+        ${product.price > 0 ? `
+          <span class="quickview-price-val" style="font-size:1.45rem; font-weight:800; color:#0D3E2C;">${formatPKR(product.price)}</span>
+          ${product.originalPrice && product.originalPrice > product.price ? `<span class="quickview-price-old" style="text-decoration:line-through; color:#94A3B8; font-size:0.95rem;">${formatPKR(product.originalPrice)}</span>` : ''}
+        ` : `
+          <span class="quickview-price-val" style="font-size:1.25rem; font-weight:800; color:#0D3E2C;">Price on Request</span>
+        `}
         <span class="quickview-demo-badge" style="background:#EBF5F0; color:#0D3E2C; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:4px;">Official Stock</span>
       </div>
 
-      <p class="quickview-desc" style="font-size:0.84375rem; color:#475569; line-height:1.6; margin-bottom:14px;">
+      <p class="quickview-desc" style="font-size:0.84375rem; color:#475569; line-height:1.6; margin-bottom:14px; max-height:120px; overflow-y:auto;">
         ${product.description}
       </p>
 
@@ -946,7 +1022,6 @@ function openAccountModal(event) {
 
   const user = getStoredAuthUser();
   const triggerBtn = (ev && (ev.currentTarget || (ev.target && ev.target.closest(".header-action-btn")))) || document.querySelector(".header-action-btn[onclick*='openAccountModal']");
-  const isMobile = window.innerWidth <= 992;
 
   const popover = document.createElement("div");
   popover.className = "header-account-popover";
@@ -1023,62 +1098,13 @@ function openAccountModal(event) {
     `;
   }
 
-  if (isMobile) {
-    // Mobile positioning: position directly beneath the mobile navbar and center relative to account icon
-    const mobileNav = document.querySelector(".mobile-top-nav");
-    const header = (triggerBtn && triggerBtn.closest(".main-header")) || document.querySelector(".main-header");
-    let topPos = 115;
-    if (mobileNav && window.getComputedStyle(mobileNav).display !== "none") {
-      const navRect = mobileNav.getBoundingClientRect();
-      topPos = Math.round(navRect.bottom + 4);
-    } else if (header) {
-      const headerRect = header.getBoundingClientRect();
-      topPos = Math.round(headerRect.bottom + 4);
-    } else if (triggerBtn) {
-      const btnRect = triggerBtn.getBoundingClientRect();
-      topPos = Math.round(btnRect.bottom + 8);
-    }
-
-    const viewportW = window.innerWidth;
-    const popoverWidth = Math.min(290, viewportW - 24);
-    let leftPos;
-    let caretPos = 145;
-
-    if (triggerBtn) {
-      const btnRect = triggerBtn.getBoundingClientRect();
-      const btnCenter = btnRect.left + (btnRect.width / 2);
-      leftPos = Math.round(btnCenter - (popoverWidth / 2));
-      // Clamp within viewport margins
-      if (leftPos < 12) leftPos = 12;
-      if (leftPos + popoverWidth > viewportW - 12) {
-        leftPos = viewportW - popoverWidth - 12;
-      }
-      caretPos = Math.round(btnCenter - leftPos);
-      if (caretPos < 16) caretPos = 16;
-      if (caretPos > popoverWidth - 16) caretPos = popoverWidth - 16;
-    } else {
-      leftPos = Math.round(viewportW - popoverWidth - 12);
-    }
-
-    popover.style.setProperty("--account-popover-top", topPos + "px");
-    popover.style.setProperty("--account-popover-left", leftPos + "px");
-    popover.style.setProperty("--account-popover-width", popoverWidth + "px");
-    popover.style.setProperty("--caret-left", caretPos + "px");
-
-    const maxH = Math.min(440, window.innerHeight - topPos - 16);
-    popover.style.maxHeight = maxH + "px";
-
-    document.body.appendChild(popover);
-  } else {
-    // Desktop: attach to .header-actions preserving exact desktop layout and styling
-    const parentContainer = triggerBtn ? triggerBtn.closest(".header-actions") : document.querySelector(".header-actions") || document.body;
-    if (!parentContainer) {
-      window.location.href = user ? getAuthPagePath("account.html") : getAuthPagePath("login.html");
-      return;
-    }
-    parentContainer.style.position = "relative";
-    parentContainer.appendChild(popover);
+  const parentContainer = triggerBtn ? triggerBtn.closest(".header-actions") : document.querySelector(".header-actions") || document.body;
+  if (!parentContainer) {
+    window.location.href = user ? getAuthPagePath("account.html") : getAuthPagePath("login.html");
+    return;
   }
+  parentContainer.style.position = "relative";
+  parentContainer.appendChild(popover);
 
   function closePopover() {
     if (popover && popover.parentNode) {
@@ -1134,6 +1160,13 @@ function logoutUser() {
   }
 }
 
+// Explicit window bindings for inline HTML onclick attributes
+if (typeof window !== "undefined") {
+  window.openAccountModal = openAccountModal;
+  window.logoutUser = logoutUser;
+  window.initHeaderAuth = initHeaderAuth;
+}
+
 // --- 12. Alladin.pk Visual Reference — Card Layout 02 Renderer ---
 function renderProductCardAlladin(product) {
   const isWish = isInWishlist(product.id);
@@ -1142,8 +1175,10 @@ function renderProductCardAlladin(product) {
   const savings = (product.originalPrice && product.originalPrice > product.price) 
     ? product.originalPrice - product.price 
     : 0;
-  const hasSecondary = Boolean(product.secondaryImage);
+  const hasSecondary = Boolean(product.secondaryImage && product.secondaryImage !== product.image);
   const detailsUrl = `${getAuthPagePath('product-details.html')}?id=${encodeURIComponent(product.id)}`;
+  const primaryImg = resolveProductImagePath(product.image);
+  const secondaryImg = resolveProductImagePath(product.secondaryImage);
 
   // Rating stars HTML
   const starsCount = Math.floor(product.rating || 5);
@@ -1178,8 +1213,8 @@ function renderProductCardAlladin(product) {
           </button>
         </div>
 
-        <img src="${product.image}" alt="${product.name}" class="pca-img pca-img-primary" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80'">
-        ${hasSecondary ? `<img src="${product.secondaryImage}" alt="${product.name} (Alternate View)" class="pca-img pca-img-secondary" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <img src="${primaryImg}" alt="${product.name}" class="pca-img pca-img-primary" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80'">
+        ${hasSecondary ? `<img src="${secondaryImg}" alt="${product.name} (Alternate View)" class="pca-img pca-img-secondary" loading="lazy" onerror="this.style.display='none'">` : ''}
       </div>
 
       <div class="pca-body">
@@ -1195,8 +1230,12 @@ function renderProductCardAlladin(product) {
 
         <div class="pca-price-container">
           <div class="pca-price-row">
-            <span class="pca-price-current">${formatPKR(product.price)}</span>
-            ${product.originalPrice ? `<span class="pca-price-original">${formatPKR(product.originalPrice)}</span>` : ''}
+            ${product.price > 0 ? `
+              <span class="pca-price-current">${formatPKR(product.price)}</span>
+              ${product.originalPrice ? `<span class="pca-price-original">${formatPKR(product.originalPrice)}</span>` : ''}
+            ` : `
+              <span class="pca-price-current" style="font-size:0.95rem; color:#0D3E2C; font-weight:700;">Price on Request</span>
+            `}
           </div>
           ${savings > 0 ? `<div class="pca-savings-pill">Save ${formatPKR(savings)}</div>` : ''}
         </div>
@@ -1244,6 +1283,46 @@ function initTouchImageSwaps() {
       }
     }
   }, { passive: true });
+}
+
+// --- Landscape Solar Video In-View Auto-Playback (Completely Silent) ---
+function initLandscapeVideo() {
+  const video = document.querySelector(".landscape-solar-video");
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.volume = 0;
+  video.playsInline = true;
+
+  // Lock mute state so video never produces sound
+  video.addEventListener("volumechange", () => {
+    if (!video.muted || video.volume > 0) {
+      video.muted = true;
+      video.volume = 0;
+    }
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const promise = video.play();
+          if (promise !== undefined) {
+            promise.catch(() => {});
+          }
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    observer.observe(video);
+  } else {
+    const promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(() => {});
+    }
+  }
 }
 
 // --- 13. Hero Slideshow Auto-Play & Touch Navigation ---

@@ -88,7 +88,7 @@ img, svg, video {
   }
 
   .mobile-nav-toggle {
-    display: flex;
+    display: none !important;
   }
 
   .header-search-toggle-btn {
@@ -235,8 +235,8 @@ img, svg, video {
   }
 
   .horizontal-product-track .product-card-alladin {
-    flex: 0 0 290px !important;
-    min-width: 290px !important;
+    flex: 0 0 315px !important;
+    min-width: 315px !important;
   }
 
   .halo-banners-grid {
@@ -549,7 +549,7 @@ img, svg, video {
 
   .pca-media,
   .product-card-top {
-    height: 205px !important;
+    height: 240px !important;
     padding-top: 0 !important;
   }
 
@@ -557,6 +557,9 @@ img, svg, video {
   .product-card-img {
     height: 100% !important;
     object-fit: contain !important;
+    object-position: center !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
     background-color: #F8FAFC !important;
   }
 
@@ -740,7 +743,7 @@ img, svg, video {
 
   .horizontal-product-track .product-card-top,
   .horizontal-product-track .pca-media {
-    height: 205px !important;
+    height: 240px !important;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
     position: relative !important;
   }
@@ -1035,6 +1038,24 @@ img, svg, video {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
     margin-bottom: 32px !important;
+  }
+
+  .footer-main-row {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  .footer-col-left,
+  .footer-col-center,
+  .footer-col-right {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: auto !important;
+  }
+
+  .footer-bottom-row {
+    margin-top: 24px !important;
+    padding-top: 16px !important;
   }
 
   .footer-brand-col {
@@ -1798,7 +1819,7 @@ img, svg, video {
 
   .horizontal-product-track .product-card-top,
   .horizontal-product-track .pca-media {
-    height: 230px !important;
+    height: 255px !important;
   }
 
   .horizontal-product-track .pca-body,
@@ -1857,7 +1878,7 @@ img, svg, video {
 
   .pca-media,
   .product-card-top {
-    height: 200px !important;
+    height: 235px !important;
     padding-top: 0 !important;
   }
 
@@ -1865,6 +1886,9 @@ img, svg, video {
   .product-card-img {
     height: 100% !important;
     object-fit: contain !important;
+    object-position: center !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
     background-color: #F8FAFC !important;
   }
 
@@ -2267,7 +2291,7 @@ img, svg, video {
   }
   .horizontal-product-track .product-card-top,
   .horizontal-product-track .pca-media {
-    height: 210px !important;
+    height: 235px !important;
   }
 
   /* Category grid: remain 2 cols but smaller */
@@ -2321,7 +2345,7 @@ img, svg, video {
 
   .pca-media,
   .product-card-top {
-    height: 180px !important;
+    height: 210px !important;
     padding-top: 0 !important;
   }
 
@@ -2362,7 +2386,7 @@ img, svg, video {
   }
   .horizontal-product-track .product-card-top,
   .horizontal-product-track .pca-media {
-    height: 190px !important;
+    height: 220px !important;
   }
 
   .header-actions {
@@ -2658,5 +2682,401 @@ img, svg, video {
 
   .payment-option-card {
     padding: 10px 8px !important;
+  }
+}
+
+
+/* ==========================================================================
+   Responsive: Homepage Redesign (Projects, Packages, Quote Process)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .quote-process-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-projects-section,
+  .home-packages-section,
+  .home-quote-section {
+    padding: 56px 0 !important;
+  }
+
+  .projects-grid,
+  .solar-packages-dual-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .project-card {
+    height: 280px !important;
+  }
+
+  .project-card-title {
+    font-size: 1.35rem !important;
+  }
+
+  .package-card-img-wrap {
+    height: 200px !important;
+  }
+
+  .package-card-content {
+    padding: 24px 20px !important;
+  }
+
+  .quote-process-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .quote-action-wrap {
+    margin-top: 36px !important;
+  }
+
+  .btn-quote-action {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-process-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ==========================================================================
+   Responsive: About Us Page (Desktop, Tablet & Mobile Comprehensive)
+   ========================================================================== */
+
+/* 1. Large Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .about-hero-section {
+    padding: 85px 0 75px !important;
+  }
+
+  .about-hero-heading {
+    font-size: 2.4rem !important;
+  }
+
+  .about-two-col-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+  }
+
+  .about-mission-grid {
+    gap: 24px !important;
+  }
+
+  .mission-card {
+    padding: 32px 26px !important;
+  }
+
+  .about-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* 2. Standard Tablets (<= 992px) */
+@media (max-width: 992px) {
+  .about-hero-section {
+    padding: 72px 0 62px !important;
+  }
+
+  .about-hero-heading {
+    font-size: 2.15rem !important;
+  }
+
+  .about-hero-desc {
+    font-size: 1.05rem !important;
+  }
+
+  .about-who-section,
+  .about-mission-section,
+  .about-why-section {
+    padding: 64px 0 !important;
+  }
+
+  .about-two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .about-who-img-col {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+  }
+
+  .about-who-text-col {
+    order: 1 !important;
+  }
+
+  .about-img-frame {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    border-radius: 18px !important;
+  }
+
+  .about-who-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .about-mission-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .about-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+
+/* 3. Small Tablets & Landscape Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .about-hero-section {
+    padding: 58px 16px 48px !important;
+  }
+
+  .about-hero-label {
+    font-size: 0.72rem !important;
+    padding: 6px 16px !important;
+    gap: 6px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .about-hero-heading {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .about-hero-desc {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    max-width: 580px !important;
+  }
+
+  .about-who-section,
+  .about-mission-section,
+  .about-why-section {
+    padding: 48px 0 !important;
+  }
+
+  .about-two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .about-text-lead {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .about-focus-list {
+    gap: 16px !important;
+  }
+
+  .about-focus-item {
+    gap: 14px !important;
+  }
+
+  .about-focus-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 10px !important;
+  }
+
+  .about-focus-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .about-focus-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  .about-focus-desc {
+    font-size: 0.8125rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .about-img-frame {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  .about-mission-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .mission-card {
+    padding: 28px 22px !important;
+    border-radius: 18px !important;
+  }
+
+  .mission-card-header {
+    margin-bottom: 16px !important;
+  }
+
+  .mission-icon-box {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .mission-icon-box svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .mission-card-tag {
+    font-size: 0.6875rem !important;
+    padding: 3px 10px !important;
+  }
+
+  .mission-card-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .mission-card-text {
+    font-size: 0.90625rem !important;
+    line-height: 1.62 !important;
+  }
+
+  .about-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .about-feature-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .about-feature-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .about-feature-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .about-feature-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .about-feature-desc {
+    font-size: 0.78125rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* 4. Phones & Ultra-Compact Screens (<= 480px) */
+@media (max-width: 480px) {
+  .about-hero-section {
+    padding: 44px 12px 36px !important;
+  }
+
+  .about-hero-heading {
+    font-size: 1.55rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .about-hero-desc {
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .about-who-section,
+  .about-mission-section,
+  .about-why-section {
+    padding: 38px 0 !important;
+  }
+
+  .about-features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .about-feature-card {
+    padding: 18px 16px !important;
+  }
+
+  .mission-card {
+    padding: 24px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .mission-card-header {
+    margin-bottom: 14px !important;
+  }
+
+  .mission-card-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mission-card-text {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .about-img-frame {
+    border-radius: 12px !important;
+  }
+}
+
+/* 5. Touch Devices: Always Show Complete Card Content (Hover Fallback) */
+@media (hover: none), (pointer: coarse) {
+  .about-focus-icon {
+    background-color: #0D3E2C !important;
+    color: var(--color-accent) !important;
+  }
+
+  .mission-icon-box {
+    background-color: #0D3E2C !important;
+    color: var(--color-accent) !important;
+  }
+
+  .about-feature-icon {
+    background-color: #0D3E2C !important;
+    color: var(--color-accent) !important;
+  }
+
+  .mission-card,
+  .about-feature-card {
+    box-shadow: 0 4px 16px rgba(13, 62, 44, 0.08) !important;
+    border-color: rgba(13, 62, 44, 0.22) !important;
+  }
+
+  .mission-card-text,
+  .about-feature-desc,
+  .about-focus-desc {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
